@@ -62,6 +62,22 @@ document.addEventListener("DOMContentLoaded", function() {
       "./assets/images/MF-348-018-bz.jpg"
     ];
 
+    let firebaseConfig = {
+      apiKey: "AIzaSyARjmqlMf7UhFA8buKB5OIQ2VreaqMz4l0",
+      authDomain: "facestudy-7aa90.firebaseapp.com",
+      databaseURL: "https://facestudy-7aa90.firebaseio.com",
+      projectId: "facestudy-7aa90",
+      storageBucket: "facestudy-7aa90.appspot.com",
+      messagingSenderId: "517061399659",
+      appId: "1:517061399659:web:021d269da8ffd264b58d2e",
+      measurementId: "G-TTFMER2NY5"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    let database = firebase.database();
+
     class FaceRating {
       constructor(face1, face2, rating) {
         this.firstFace = face1;
@@ -119,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let rating = new FaceRating(
           faces[randFace1].substring(16),
           faces[randFace2].substring(16),
-          button.innerHTML
+          parseInt(button.innerHTML)
         );
         ratingsArr.push(rating);
 
@@ -161,6 +177,10 @@ document.addEventListener("DOMContentLoaded", function() {
         let totalInfo = new AllInfo(ratingsArr, personInfo);
         localData = { results: totalInfo };
         localStorage.setItem("results", JSON.stringify(localData));
+        firebase.database().ref('participants/' + Date.now()).set({
+          totalInfo
+        });
+        form.reset();
         window.location.href = "debrief.html";
       }
     }
