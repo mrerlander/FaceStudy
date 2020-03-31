@@ -41,26 +41,43 @@ document.addEventListener("DOMContentLoaded", function() {
       "./assets/images/CFD-WF-207-014-N.jpg",
       "./assets/images/CFD-WF-208-068-N.jpg",
       "./assets/images/CFD-WF-212-050-N.jpg",
-      "./assets/images/CFD-WF-218-087-N.jpg",
+      "./assets/images/CFD-WF-218-087-N.jpg"
+    ];
+
+    nonEditedFaces = [
       "./assets/images/MF-306-003.jpg",
-      "./assets/images/MF-306-003-bz.jpg",
       "./assets/images/MF-310-027.jpg",
-      "./assets/images/MF-310-027-bz.jpg",
       "./assets/images/MF-318-022.jpg",
-      "./assets/images/MF-318-022-bz.jpg",
       "./assets/images/MF-328-020.jpg",
-      "./assets/images/MF-328-020-bz.jpg",
       "./assets/images/MF-332-014.jpg",
-      "./assets/images/MF-332-014-bz.jpg",
       "./assets/images/MF-337-026.jpg",
-      "./assets/images/MF-337-026-bz.jpg",
       "./assets/images/MF-340-026.jpg",
-      "./assets/images/MF-340-026-bz.jpg",
       "./assets/images/MF-347-001.jpg",
+      "./assets/images/MF-348-018.jpg"
+    ];
+
+    EditedFaces = [
+      "./assets/images/MF-306-003-bz.jpg",
+      "./assets/images/MF-310-027-bz.jpg",
+      "./assets/images/MF-318-022-bz.jpg",
+      "./assets/images/MF-328-020-bz.jpg",
+      "./assets/images/MF-332-014-bz.jpg",
+      "./assets/images/MF-337-026-bz.jpg",
+      "./assets/images/MF-340-026-bz.jpg",
       "./assets/images/MF-347-001-bz.jpg",
-      "./assets/images/MF-348-018.jpg",
       "./assets/images/MF-348-018-bz.jpg"
     ];
+
+    let randomBool = Math.random() >= 0.5;
+    let test;
+
+    if (randomBool === true){
+      faces.concat(EditedFaces);
+      test = 'edited'
+    } else {
+      faces.concat(nonEditedFaces);
+      test = 'not edited'
+    }
 
     let firebaseConfig = {
       apiKey: "AIzaSyARjmqlMf7UhFA8buKB5OIQ2VreaqMz4l0",
@@ -87,17 +104,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     class Person {
-      constructor(age, race, gender) {
+      constructor(age, race, gender, id) {
         this.age = age;
         this.race = race;
         this.gender = gender;
+        this.id = id;
       }
     }
 
     class AllInfo {
-      constructor(ratings, person) {
+      constructor(ratings, person, test) {
         this.ratings = ratings;
         this.person = person;
+        this.test = test;
       }
     }
 
@@ -173,13 +192,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         return;
       } else {
-        let personInfo = new Person(age, race, gender);
-        let totalInfo = new AllInfo(ratingsArr, personInfo);
+        let id = Date.now();
+        let personInfo = new Person(age, race, gender, id);
+        let totalInfo = new AllInfo(ratingsArr, personInfo, test);
         localData = { results: totalInfo };
         localStorage.setItem("results", JSON.stringify(localData));
-        firebase.database().ref('participants/' + Date.now()).set({
-          totalInfo
-        });
+        firebase
+          .database()
+          .ref("participants/" + personInfo.id)
+          .set({
+            totalInfo
+          });
         form.reset();
         window.location.href = "debrief.html";
       }
