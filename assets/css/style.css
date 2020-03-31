@@ -1,21 +1,17 @@
 body {
-    font-family: Calibri;
-    font-size: 12pt;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    margin: 0;
-    padding-bottom: 12rem;
+    padding-bottom: 5rem;
 }
 
-p, h4, h5 {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+#rating-div {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
-h4, h5 {
-    font-size: large;
+.btn-toolbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-.center {
-    text-align: center;
+#debrief {
+    padding-top: 5rem;
 }

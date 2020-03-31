@@ -1,12 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <script type="text/javascript" src="./assets/js/app.js"></script>
     <title>Faces in social contexts</title>
-</head>
-<body>
-    Hello
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Face Similarity Survey</h1>
+      <p class="text-center">
+        Please do not press the "Back" button at any time while participating in
+        this study or your progress may be lost.
+      </p>
+      <div id="pic-div" class="row justify-content-between">
+        <img id="face-1" class="face-pic col-5" src="" />
+        <img id="face-2" class="face-pic col-5" src="" />
+      </div>
+      <div id="rating-div">
+        <p class="text-center">
+          Please rate these two faces in terms of how different versus similar
+          they are to each other in terms of their physical features.
+        </p>
+        <div class="row justify-content-center">
+          <p class="text-right">Very Dissimilar</p>
+          <div
+            class="btn-toolbar"
+            role="toolbar"
+            aria-label="Toolbar with button groups"
+          >
+            <div
+              class="btn-group-lg mr-2"
+              role="group"
+              aria-label="button group"
+            >
+              <button type="button" class="rating-btn btn btn-secondary">
+                1
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                2
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                3
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                4
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                5
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                6
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                7
+              </button>
+            </div>
+          </div>
+          <p class="text-left">Very Similar</p>
+        </div>
+      </div>
+      <div class="row" id="info-form" style="display: none">
+        <h3 class="font-weight-bold text-center">
+          Thank you for your participation! Please fill out the form below:
+        </h3>
+        <form id="form">
+          <div class="form-group">
+            <label for="age">What is your age in years?</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              min="18"
+              max="99"
+              placeholder="Valid ages are 18-99"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="race">What is your race/ethnic identity?</label>
+            <select class="form-control" id="race" required>
+              <option selected disabled>Select One</option>
+              <option>Asian</option>
+              <option>Black</option>
+              <option>Latino</option>
+              <option>White</option>
+              <option>Multiracial/Biracial</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="gender">What is your gender?</label>
+            <select class="form-control" id="gender" required>
+              <option selected disabled>Select One</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Nonbinary</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
