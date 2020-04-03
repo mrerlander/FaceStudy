@@ -1,18 +1,17 @@
 body {
-    padding-bottom: 5rem;
+  padding-bottom: 5rem;
 }
 
 #rating-div {
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .btn-toolbar {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 #debrief {
-    padding-top: 5rem;
+  padding-top: 5rem;
 }
-
