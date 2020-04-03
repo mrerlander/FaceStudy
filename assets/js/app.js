@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
+  let landing = document.getElementById("landing");
+  let study = document.getElementById("study");
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
 
@@ -9,6 +11,15 @@ document.addEventListener("DOMContentLoaded", function() {
       nextBtn.disabled = true;
     }
   };
+
+  // landing.style.display = "block";
+  // landing.study.display = "none";
+
+  let agreeButton = document.getElementById("submit-button");
+  agreeButton.addEventListener("click", function(){
+    landing.style.display = "none";
+    study.style.display = "block";
+  });
 
   // let images = new Array();
   // function preload() {

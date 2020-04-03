@@ -9,7 +9,7 @@
     <title>Faces in social contexts</title>
   </head>
   <body>
-    <div class="container">
+    <div id="landing" class="container">
     <h6 class="text-center font-weight-bold">California State University, Northridge</h6>
     <h5 class="text-center font-weight-bold">CONSENT TO ACT AS A HUMAN RESEARCH PARTICIPANT</h5>
     <br />
@@ -179,11 +179,156 @@
       type="button"
       id="submit-button"
       class="btn btn-secondary"
-      onclick="location.href='study.html'"
       disabled
     >
       Next
     </button>
     </div>
+    <div id="study" class="container" style="display: none">
+      <h1 class="text-center">Face Similarity Survey</h1>
+      <p class="text-center">
+        Please do not press the "Back" button at any time while participating in
+        this study or your progress may be lost.
+      </p>
+      <div id="pic-div" class="row justify-content-between">
+        <img id="face-1" class="face-pic col-5" src="" />
+        <img id="face-2" class="face-pic col-5" src="" />
+      </div>
+      <div id="rating-div">
+        <p class="text-center">
+          Please rate these two faces in terms of how different versus similar
+          they are to each other in terms of their physical features.
+        </p>
+        <div class="row justify-content-center">
+          <p class="text-right">Very Dissimilar</p>
+          <div
+            class="btn-toolbar"
+            role="toolbar"
+            aria-label="Toolbar with button groups"
+          >
+            <div
+              class="btn-group-lg mr-2"
+              role="group"
+              aria-label="button group"
+            >
+              <button type="button" class="rating-btn btn btn-secondary">
+                1
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                2
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                3
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                4
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                5
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                6
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                7
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                8
+              </button>
+              <button type="button" class="rating-btn btn btn-secondary">
+                9
+              </button>
+            </div>
+          </div>
+          <p class="text-left">Very Similar</p>
+        </div>
+      </div>
+      <div class="row" id="info-form" style="display: none">
+        <h3 class="font-weight-bold text-center">
+          Thank you for your participation! Please fill out the form below:
+        </h3>
+        <form id="form">
+          <div class="form-group">
+            <label for="age">What is your age in years?</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              min="18"
+              max="99"
+              placeholder="Valid ages are 18-99"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="race">What is your race/ethnic identity?</label>
+            <select class="form-control" id="race" required>
+              <option selected disabled>Select One</option>
+              <option>Asian</option>
+              <option>Black</option>
+              <option>Latino</option>
+              <option>White</option>
+              <option>Multiracial/Biracial</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="gender">What is your gender?</label>
+            <select class="form-control" id="gender" required>
+              <option selected disabled>Select One</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Nonbinary</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div id="preload-1"></div>
+    <div id="preload-2"></div>
+    <div id="preload-3"></div>
+    <div id="preload-4"></div>
+    <div id="preload-5"></div>
+    <div id="preload-6"></div>
+    <div id="preload-7"></div>
+    <div id="preload-8"></div>
+    <div id="preload-9"></div>
+    <div id="preload-10"></div>
+    <div id="preload-11"></div>
+    <div id="preload-12"></div>
+    <div id="preload-13"></div>
+    <div id="preload-14"></div>
+    <div id="preload-15"></div>
+    <div id="preload-16"></div>
+    <div id="preload-17"></div>
+    <div id="preload-18"></div>
+    <div id="preload-19"></div>
+    <div id="preload-20"></div>
+    <div id="preload-21"></div>
+    <div id="preload-22"></div>
+    <div id="preload-23"></div>
+    <div id="preload-24"></div>
+    <div id="preload-25"></div>
+    <div id="preload-26"></div>
+    <div id="preload-27"></div>
+    <div id="preload-28"></div>
+    <div id="preload-29"></div>
+    <div id="preload-30"></div>
+    <div id="preload-31"></div>
+    <div id="preload-32"></div>
+    <div id="preload-33"></div>
+    <div id="preload-34"></div>
+    <div id="preload-35"></div>
+    <div id="preload-36"></div>
+    <div id="preload-37"></div>
+    <div id="preload-38"></div>
+    <div id="preload-39"></div>
+    <div id="preload-40"></div>
+    <div id="preload-41"></div>
+    <div id="preload-42"></div>
+    <div id="preload-43"></div>
+    <div id="preload-44"></div>
+    <div id="preload-45"></div>
   </body>
 </html>
