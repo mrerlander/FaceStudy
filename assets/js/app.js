@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   let path = window.location.pathname;
   let page = path.split("/").pop();
-
+  console.log(page);
   if (page === "index.html") {
     let checkBox = document.getElementById("consent");
     let nextBtn = document.getElementById("submit-button");
