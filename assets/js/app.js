@@ -72,10 +72,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let test;
 
     if (randomBool === true){
-      faces.concat(EditedFaces);
+      faces = faces.concat(EditedFaces);
       test = 'edited'
     } else {
-      faces.concat(nonEditedFaces);
+      faces = faces.concat(nonEditedFaces);
       test = 'not edited'
     }
 
@@ -95,20 +95,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let database = firebase.database();
 
+    let id = Date.now();
+
     class FaceRating {
-      constructor(face1, face2, rating) {
+      constructor(face1, face2, rating, id, test) {
         this.firstFace = face1;
         this.secondFace = face2;
         this.rating = rating;
+        this.id = id;
+        this.test = test;
       }
     }
 
     class Person {
-      constructor(age, race, gender, id) {
+      constructor(age, race, gender, id, test) {
         this.age = age;
         this.race = race;
         this.gender = gender;
         this.id = id;
+        this.test = test;
       }
     }
 
@@ -127,10 +132,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let localData;
 
     function loadFaces() {
-      randFace1 = Math.floor(Math.random() * 45);
+      randFace1 = Math.floor(Math.random() * 36);
 
       do {
-        randFace2 = Math.floor(Math.random() * 45);
+        randFace2 = Math.floor(Math.random() * 36);
       } while (randFace1 === randFace2);
 
       document.getElementById("face-1").src = faces[randFace1];
@@ -154,11 +159,13 @@ document.addEventListener("DOMContentLoaded", function() {
         let rating = new FaceRating(
           faces[randFace1].substring(16),
           faces[randFace2].substring(16),
-          parseInt(button.innerHTML)
+          parseInt(button.innerHTML),
+          id,
+          test
         );
         ratingsArr.push(rating);
 
-        if (count < 11) {
+        if (count < 119) {
           count++;
           loadFaces();
         } else {
@@ -192,11 +199,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         return;
       } else {
-        let id = Date.now();
-        let personInfo = new Person(age, race, gender, id);
+        let personInfo = new Person(age, race, gender, id, test);
         let totalInfo = new AllInfo(ratingsArr, personInfo, test);
-        localData = { results: totalInfo };
-        localStorage.setItem("results", JSON.stringify(localData));
+        // localData = { results: totalInfo };
+        // localStorage.setItem("results", JSON.stringify(localData));
         firebase
           .database()
           .ref("participants/" + personInfo.id)
@@ -208,6 +214,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   } else {
-    console.log(JSON.parse(localStorage.getItem("results")));
+    // console.log(JSON.parse(localStorage.getItem("results")));
   }
 });
