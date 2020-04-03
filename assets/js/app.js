@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-  let landing = document.getElementById("landing");
-  let study = document.getElementById("study");
+  // let landing = document.getElementById("landing");
+  // let study = document.getElementById("study");
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
 
+  if(checkBox){
   checkBox.onchange = function() {
     if (this.checked) {
       nextBtn.disabled = false;
@@ -11,15 +12,20 @@ document.addEventListener("DOMContentLoaded", function() {
       nextBtn.disabled = true;
     }
   };
+}
+
+
+
+  // let agreeButton = document.getElementById("submit-button");
+  // agreeButton.addEventListener("click", function(){
+  //   landing.style.display = "none";
+  //   study.style.display = "block";
+  // });
+
+  
 
   // landing.style.display = "block";
   // landing.study.display = "none";
-
-  let agreeButton = document.getElementById("submit-button");
-  agreeButton.addEventListener("click", function(){
-    landing.style.display = "none";
-    study.style.display = "block";
-  });
 
   // let images = new Array();
   // function preload() {
@@ -195,17 +201,32 @@ document.addEventListener("DOMContentLoaded", function() {
   let localData;
 
   function loadFaces() {
+    console.log("hit");
+    facesDiv = document.getElementById("pic-div");
+    facesDiv.innerHTML = "";
     randFace1 = Math.floor(Math.random() * 36);
 
     do {
       randFace2 = Math.floor(Math.random() * 36);
     } while (randFace1 === randFace2);
 
-    document.getElementById("face-1").src = faces[randFace1];
-    document.getElementById("face-2").src = faces[randFace2];
-  }
+    faceOneEl = document.createElement("img");
+    faceTwoEl = document.createElement("img");
+    faceOneEl.setAttribute("id", "face-1");
+    faceTwoEl.setAttribute("id", "face-2");
+    faceOneEl.setAttribute("src", faces[randFace1]);
+    faceTwoEl.setAttribute("src", faces[randFace2]);
+    faceOneEl.setAttribute("class", "face-pic col-5");
+    faceTwoEl.setAttribute("class", "face-pic col-5");
 
-  loadFaces();
+    
+
+    facesDiv.appendChild(faceOneEl);
+    facesDiv.appendChild(faceTwoEl);
+
+    // document.getElementById("face-1").src = faces[randFace1];
+    // document.getElementById("face-2").src = faces[randFace2];
+  }
 
   let buttons = document.getElementsByClassName("rating-btn");
 
@@ -277,5 +298,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  loadFaces();
   // console.log(JSON.parse(localStorage.getItem("results")));
 });
