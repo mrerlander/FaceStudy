@@ -10,6 +10,62 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   };
 
+  let images = new Array();
+  function preload() {
+    for (i = 0; i < preload.arguments.length; i++) {
+      images[i] = new Image();
+      images[i].src = preload.arguments[i];
+    }
+    console.log(images);
+  }
+  preload(
+    "./assets/images/CFD-BF-001-025-N.jpg",
+    "./assets/images/CFD-BF-037-022-N.jpg",
+    "./assets/images/CFD-BF-039-031-N.jpg",
+    "./assets/images/CFD-BF-040-003-N.jpg",
+    "./assets/images/CFD-BF-201-080-N.jpg",
+    "./assets/images/CFD-BF-204-189-N.jpg",
+    "./assets/images/CFD-BF-218-207-N.jpg",
+    "./assets/images/CFD-BF-221-223-N.jpg",
+    "./assets/images/CFD-BF-244-231-N.jpg",
+    "./assets/images/CFD-LF-204-133-N.jpg",
+    "./assets/images/CFD-LF-209-072-N.jpg",
+    "./assets/images/CFD-LF-212-066-N.jpg",
+    "./assets/images/CFD-LF-214-090-N.jpg",
+    "./assets/images/CFD-LF-215-157-N.jpg",
+    "./assets/images/CFD-LF-220-120-N.jpg",
+    "./assets/images/CFD-LF-221-002-N.jpg",
+    "./assets/images/CFD-LF-252-172-N.jpg",
+    "./assets/images/CFD-LF-255-088-N.jpg",
+    "./assets/images/CFD-WF-008-002-N.jpg",
+    "./assets/images/CFD-WF-011-002-N.jpg",
+    "./assets/images/CFD-WF-036-023-N.jpg",
+    "./assets/images/CFD-WF-038-021-N.jpg",
+    "./assets/images/CFD-WF-205-006-N.jpg",
+    "./assets/images/CFD-WF-207-014-N.jpg",
+    "./assets/images/CFD-WF-208-068-N.jpg",
+    "./assets/images/CFD-WF-212-050-N.jpg",
+    "./assets/images/CFD-WF-218-087-N.jpg",
+    "./assets/images/MF-306-003.jpg",
+    "./assets/images/MF-310-027.jpg",
+    "./assets/images/MF-318-022.jpg",
+    "./assets/images/MF-328-020.jpg",
+    "./assets/images/MF-332-014.jpg",
+    "./assets/images/MF-337-026.jpg",
+    "./assets/images/MF-340-026.jpg",
+    "./assets/images/MF-347-001.jpg",
+    "./assets/images/MF-348-018.jpg",
+    "./assets/images/MF-306-003-bz.jpg",
+    "./assets/images/MF-310-027-bz.jpg",
+    "./assets/images/MF-318-022-bz.jpg",
+    "./assets/images/MF-328-020-bz.jpg",
+    "./assets/images/MF-332-014-bz.jpg",
+    "./assets/images/MF-337-026-bz.jpg",
+    "./assets/images/MF-340-026-bz.jpg",
+    "./assets/images/MF-347-001-bz.jpg",
+    "./assets/images/MF-348-018-bz.jpg"
+  );
+
   let faces = [
     "./assets/images/CFD-BF-001-025-N.jpg",
     "./assets/images/CFD-BF-037-022-N.jpg",
