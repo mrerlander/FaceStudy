@@ -146,8 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
       faceTwoEl.setAttribute("id", "face-2");
       faceOneEl.setAttribute("src", faces[randFace1]);
       faceTwoEl.setAttribute("src", faces[randFace2]);
-      faceOneEl.setAttribute("class", "face-pic col-12 col-lg-5");
-      faceTwoEl.setAttribute("class", "face-pic col-12 col-lg-5");
+      faceOneEl.setAttribute("class", "face-pic col-12 col-lg-6");
+      faceTwoEl.setAttribute("class", "face-pic col-12 col-lg-6");
 
       facesDiv.appendChild(faceOneEl);
       facesDiv.appendChild(faceTwoEl);
