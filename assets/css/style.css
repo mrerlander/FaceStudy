@@ -15,3 +15,25 @@ body {
 #debrief {
   padding-top: 5rem;
 }
+
+.rating-btn {
+  width: 100%;
+}
+
+#dissimilar {
+  text-align: right;
+}
+
+#similar {
+  text-align: left;
+}
+
+@media all and (max-width: 699px) {
+  .rating-btn {
+    width: 100%;
+  }
+
+  #similar, #dissimilar {
+    text-align: center;
+  }
+}

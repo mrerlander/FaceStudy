@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
 
   if (checkBox) {
-    checkBox.onchange = function() {
+    checkBox.onchange = function () {
       if (this.checked) {
         nextBtn.disabled = false;
       } else {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "./assets/images/CFD-WF-207-014-N.jpg",
     "./assets/images/CFD-WF-208-068-N.jpg",
     "./assets/images/CFD-WF-212-050-N.jpg",
-    "./assets/images/CFD-WF-218-087-N.jpg"
+    "./assets/images/CFD-WF-218-087-N.jpg",
   ];
 
   nonEditedFaces = [
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "./assets/images/MF-337-026.jpg",
     "./assets/images/MF-340-026.jpg",
     "./assets/images/MF-347-001.jpg",
-    "./assets/images/MF-348-018.jpg"
+    "./assets/images/MF-348-018.jpg",
   ];
 
   EditedFaces = [
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "./assets/images/MF-337-026-bz.jpg",
     "./assets/images/MF-340-026-bz.jpg",
     "./assets/images/MF-347-001-bz.jpg",
-    "./assets/images/MF-348-018-bz.jpg"
+    "./assets/images/MF-348-018-bz.jpg",
   ];
 
   let randomBool = Math.random() >= 0.5;
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
     storageBucket: "facestudy-7aa90.appspot.com",
     messagingSenderId: "517061399659",
     appId: "1:517061399659:web:021d269da8ffd264b58d2e",
-    measurementId: "G-TTFMER2NY5"
+    measurementId: "G-TTFMER2NY5",
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -130,7 +130,9 @@ document.addEventListener("DOMContentLoaded", function() {
   let localData;
 
   function loadFaces() {
+    ratingDiv = document.getElementById("rating-div");
     facesDiv = document.getElementById("pic-div");
+    ratingDiv.display = "none";
     facesDiv.innerHTML = "";
     randFace1 = Math.floor(Math.random() * 36);
 
@@ -145,11 +147,12 @@ document.addEventListener("DOMContentLoaded", function() {
     faceTwoEl.setAttribute("id", "face-2");
     faceOneEl.setAttribute("src", faces[randFace1]);
     faceTwoEl.setAttribute("src", faces[randFace2]);
-    faceOneEl.setAttribute("class", "face-pic col-5");
-    faceTwoEl.setAttribute("class", "face-pic col-5");
+    faceOneEl.setAttribute("class", "face-pic col-12 col-lg-5");
+    faceTwoEl.setAttribute("class", "face-pic col-12 col-lg-5");
 
     facesDiv.appendChild(faceOneEl);
     facesDiv.appendChild(faceTwoEl);
+    ratingDiv.display = "visible";
   }
 
   let buttons = document.getElementsByClassName("rating-btn");
@@ -163,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
-    button.onclick = function() {
+    button.onclick = function () {
       let rating = new FaceRating(
         faces[randFace1].substring(16),
         faces[randFace2].substring(16),
@@ -214,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .database()
         .ref("participants/" + personInfo.id)
         .set({
-          totalInfo
+          totalInfo,
         });
       form.reset();
       window.location.href = "debrief.html";

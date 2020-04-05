@@ -30,51 +30,58 @@
           Please rate these two faces in terms of how different versus similar
           they are to each other in terms of their physical features.
         </p>
-        <div class="row justify-content-center">
-          <p class="text-right">Very Dissimilar</p>
-          <div
-            class="btn-toolbar"
-            role="toolbar"
-            aria-label="Toolbar with button groups"
-          >
-            <div
-              class="btn-group-lg mr-2"
-              role="group"
-              aria-label="button group"
-            >
-              <button type="button" class="rating-btn btn btn-secondary">
-                1
-              </button>
-              <button type="button" class="rating-btn btn btn-secondary">
-                2
-              </button>
-              <button type="button" class="rating-btn btn btn-secondary">
-                3
-              </button>
-              <button type="button" class="rating-btn btn btn-secondary">
-                4
-              </button>
-              <button type="button" class="rating-btn btn btn-secondary">
-                5
-              </button>
-              <button type="button" class="rating-btn btn btn-secondary">
-                6
-              </button>
-              <button type="button" class="rating-btn btn btn-secondary">
-                7
-              </button>
-              <button type="button" class="rating-btn btn btn-secondary">
-                8
-              </button>
-              <button type="button" class="rating-btn btn btn-secondary">
-                9
-              </button>
-            </div>
-          </div>
-          <p class="text-left">Very Similar</p>
+        <div class="row">
+          <p id="dissimilar" class="col-12 col-md-2">Very Dissimilar</p>
+          <div class="col-12 col-md-1">
+          <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            1
+          </button>
+        </div>
+        <div class="col-12 col-md-1">
+          <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            2
+          </button>
+        </div>
+        <div class="col-12 col-md-1">
+          <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            3
+          </button>
+        </div>
+        <div class="col-12 col-md-1">
+          <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            4
+          </button>
+        </div>
+        <div class="col-12 col-md-1">
+          <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            5
+          </button>
+        </div>
+        <div class="col-12 col-md-1">
+          <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            6
+          </button>  
+        </div>
+          <div class="col-12 col-md-1">
+        <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            7
+          </button>
+        </div>
+          <div class="col-12 col-md-1">
+          <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            8
+          </button>
+        </div>
+          <div class="col-12 col-md-1">
+          <button type="button" class="rating-btn btn-lg btn-outline-dark">
+            9
+          </button>
+        </div>
+          <div class="col-12 col-md-1">
+          <p id="similar" class="col-12 col-md-1">Very Similar</p>
         </div>
       </div>
-      <div class="row" id="info-form" style="display: none">
+      <div class="row" id="info-form" style="display: none;">
         <h3 class="font-weight-bold text-center">
           Thank you for your participation! Please fill out the form below:
         </h3>
@@ -112,7 +119,7 @@
               <option>Nonbinary</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-secondary">Submit</button>
+          <button type="submit" class="btn-lg btn-outline-dark">Submit</button>
         </form>
       </div>
     </div>
