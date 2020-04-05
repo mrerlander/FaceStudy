@@ -32,11 +32,6 @@ body {
   margin-right: 5rem;
 }
 
-#pic-div {
-  max-width: 100vw;
-  height: auto;
-}
-
 @media all and (max-width: 699px) {
   .rating-btn {
     width: 100%;
