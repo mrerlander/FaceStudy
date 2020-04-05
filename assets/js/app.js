@@ -138,21 +138,26 @@ document.addEventListener("DOMContentLoaded", function () {
       randFace2 = Math.floor(Math.random() * 36);
     } while (randFace1 === randFace2);
 
-    faceOneEl = new Image();
-    faceOneEl.src = randFace1;
-    faceTwoEl = new Image();
-    faceTwoEl.src = randFace2;
-    faceOneEl.setAttribute("id", "face-1");
-    faceTwoEl.setAttribute("id", "face-2");
-    faceOneEl.setAttribute("class", "face-pic col-12 col-lg-5");
-    faceTwoEl.setAttribute("class", "face-pic col-12 col-lg-5");
-    
-    faceOneEl.onload = function(){
-      facesDiv.innerHTML = "";
+    if (!facesDiv.firstElementChild) {
+      faceOneEl = document.createElement("img");
+      faceTwoEl = document.createElement("img");
+
+      faceOneEl.setAttribute("id", "face-1");
+      faceTwoEl.setAttribute("id", "face-2");
+      faceOneEl.setAttribute("src", faces[randFace1]);
+      faceTwoEl.setAttribute("src", faces[randFace2]);
+      faceOneEl.setAttribute("class", "face-pic col-12 col-lg-5");
+      faceTwoEl.setAttribute("class", "face-pic col-12 col-lg-5");
+
       facesDiv.appendChild(faceOneEl);
       facesDiv.appendChild(faceTwoEl);
+    } else {
+      faceOne = document.getElementById("face-1");
+      faceTwo = document.getElementById("face-2");
+
+      faceOneEl.setAttribute("src", faces[randFace1]);
+      faceTwoEl.setAttribute("src", faces[randFace2]);
     }
-    
   }
 
   let buttons = document.getElementsByClassName("rating-btn");
