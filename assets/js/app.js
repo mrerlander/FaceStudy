@@ -130,29 +130,29 @@ document.addEventListener("DOMContentLoaded", function () {
   let localData;
 
   function loadFaces() {
-    ratingDiv = document.getElementById("rating-div");
     facesDiv = document.getElementById("pic-div");
-    ratingDiv.display = "none";
-    facesDiv.innerHTML = "";
+
     randFace1 = Math.floor(Math.random() * 36);
 
     do {
       randFace2 = Math.floor(Math.random() * 36);
     } while (randFace1 === randFace2);
 
-    faceOneEl = document.createElement("img");
-    faceTwoEl = document.createElement("img");
-
+    faceOneEl = new Image();
+    faceOneEl.src = randFace1;
+    faceTwoEl = new Image();
+    faceTwoEl.src = randFace2;
     faceOneEl.setAttribute("id", "face-1");
     faceTwoEl.setAttribute("id", "face-2");
-    faceOneEl.setAttribute("src", faces[randFace1]);
-    faceTwoEl.setAttribute("src", faces[randFace2]);
     faceOneEl.setAttribute("class", "face-pic col-12 col-lg-5");
     faceTwoEl.setAttribute("class", "face-pic col-12 col-lg-5");
-
-    facesDiv.appendChild(faceOneEl);
-    facesDiv.appendChild(faceTwoEl);
-    ratingDiv.display = "visible";
+    
+    faceOneEl.onload = function(){
+      facesDiv.innerHTML = "";
+      facesDiv.appendChild(faceOneEl);
+      facesDiv.appendChild(faceTwoEl);
+    }
+    
   }
 
   let buttons = document.getElementsByClassName("rating-btn");
