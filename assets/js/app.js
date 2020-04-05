@@ -130,7 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let localData;
 
   function loadFaces() {
-    facesDiv = document.getElementById("pic-div");
+    faceOneDiv = document.getElementById("face-one");
+    faceTwoDiv = document.getElementById("face-two");
 
     randFace1 = Math.floor(Math.random() * 36);
 
@@ -138,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
       randFace2 = Math.floor(Math.random() * 36);
     } while (randFace1 === randFace2);
 
-    if (!facesDiv.firstElementChild) {
+    if (!faceOneDiv.firstElementChild || !faceTwoDiv.firstElementChild) {
       faceOneEl = document.createElement("img");
       faceTwoEl = document.createElement("img");
 
@@ -146,15 +147,15 @@ document.addEventListener("DOMContentLoaded", function () {
       faceTwoEl.setAttribute("id", "face-2");
       faceOneEl.setAttribute("src", faces[randFace1]);
       faceTwoEl.setAttribute("src", faces[randFace2]);
-      faceOneEl.setAttribute("class", "face-pic col-12 col-lg-6 img-fluid");
-      faceTwoEl.setAttribute("class", "face-pic col-12 col-lg-6 img-fluid");
-      faceOneEl.style.maxWidth = "100%";
-      faceOneEl.style.height = "auto";
-      faceTwoEl.style.maxWidth = "100%";
-      faceTwoEl.style.height = "auto";
+      faceOneEl.setAttribute("class", "img-fluid");
+      faceTwoEl.setAttribute("class", "img-fluid");
+      // faceOneEl.style.maxWidth = "100%";
+      // faceOneEl.style.height = "auto";
+      // faceTwoEl.style.maxWidth = "100%";
+      // faceTwoEl.style.height = "auto";
 
-      facesDiv.appendChild(faceOneEl);
-      facesDiv.appendChild(faceTwoEl);
+      faceOneDiv.appendChild(faceOneEl);
+      faceTwoDiv.appendChild(faceTwoEl);
     } else {
       faceOne = document.getElementById("face-1");
       faceTwo = document.getElementById("face-2");
