@@ -20,28 +20,30 @@ body {
   width: 100%;
 }
 
-#dissimilar {
-  text-align: right;
-}
-
-#similar {
-  text-align: left;
-}
-
-#ratings-row {
+/* #ratings-row {
   margin-right: 5rem;
+} */
+
+#similar2 {
+  display: none;
 }
 
-@media all and (max-width: 699px) {
+
+
+@media all and (max-width: 575px) {
   .rating-btn {
     width: 100%;
   }
 
-  #similar, #dissimilar {
-    text-align: center;
+  #similar {
+    display: none;
   }
 
-  #ratings-row {
+  /* #ratings-row {
     margin-right: 0rem;
+  } */
+
+  #similar2 {
+    display: block;
   }
 }

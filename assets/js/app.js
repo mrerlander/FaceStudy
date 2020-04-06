@@ -181,8 +181,8 @@ document.addEventListener("DOMContentLoaded", function () {
       faceTwoEl.setAttribute("id", "face-2");
       faceOneEl.setAttribute("src", faces[randFace1]);
       faceTwoEl.setAttribute("src", faces[randFace2]);
-      faceOneEl.setAttribute("class", "img-fluid");
-      faceTwoEl.setAttribute("class", "img-fluid");
+      faceOneEl.setAttribute("class", "img-fluid mx-auto d-block");
+      faceTwoEl.setAttribute("class", "img-fluid mx-auto d-block");
 
       faceOneDiv.appendChild(faceOneEl);
       faceTwoDiv.appendChild(faceTwoEl);
