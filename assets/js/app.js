@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let randFace1;
   let randFace2;
   let temp;
+  let temp2;
   let ratingsArr = [];
 
   function loadFaces() {
@@ -135,13 +136,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     do {
     randFace1 = Math.floor(Math.random() * 36);
-    } while (randFace1 === temp)
+    } while (randFace1 === temp || randFace1 === temp2)
 
     do {
       randFace2 = Math.floor(Math.random() * 36);
     } while (randFace1 === randFace2);
 
-    temp = randFace1;
+    temp1 = randFace1;
+    temp2 = randFace2;
 
     if (!faceOneDiv.firstElementChild || !faceTwoDiv.firstElementChild) {
       faceOneEl = document.createElement("img");
