@@ -155,10 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
       faceTwoEl.setAttribute("src", faces[randFace2]);
       faceOneEl.setAttribute("class", "img-fluid");
       faceTwoEl.setAttribute("class", "img-fluid");
-      // faceOneEl.style.maxWidth = "100%";
-      // faceOneEl.style.height = "auto";
-      // faceTwoEl.style.maxWidth = "100%";
-      // faceTwoEl.style.height = "auto";
 
       faceOneDiv.appendChild(faceOneEl);
       faceTwoDiv.appendChild(faceTwoEl);
