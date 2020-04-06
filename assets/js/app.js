@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
+  let inst1 = document.getElementById("instructions-one");
+  let inst2 = document.getElementById("instructions-two");
+  let instructionsBtn = document.getElementById("instructions-button");
+  let debriefBtn = document.getElementById("debrief-button");
+  let debriefText = document.getElementById("debrief-text");
+  let code = document.getElementById("code");
 
   if (checkBox) {
     checkBox.onchange = function () {
@@ -10,6 +16,28 @@ document.addEventListener("DOMContentLoaded", function () {
         nextBtn.disabled = true;
       }
     };
+  }
+
+  if (instructionsBtn) {
+    instructionsBtn.addEventListener("click", function (e) {
+      e.preventDefault;
+
+      inst1.style.display = "none";
+
+      if (inst2.style.display === "block") {
+        window.location.href = "study.html";
+      }
+
+      inst2.style.display = "block";
+    });
+  }
+
+  if (debriefBtn) {
+    debriefBtn.addEventListener("click", function (e) {
+      e.preventDefault;
+      debriefText.style.display = "none";
+      code.style.display = "block";
+    });
   }
 
   let faces = [
@@ -135,12 +163,12 @@ document.addEventListener("DOMContentLoaded", function () {
     faceTwoDiv = document.getElementById("face-two");
 
     do {
-    randFace1 = Math.floor(Math.random() * 36);
-    } while (randFace1 === temp || randFace1 === temp2)
+      randFace1 = Math.floor(Math.random() * 36);
+    } while (randFace1 === temp || randFace1 === temp2);
 
     do {
       randFace2 = Math.floor(Math.random() * 36);
-    } while (randFace1 === randFace2);
+    } while (randFace1 === randFace2 || randFace2 === temp || randFace2 === temp2);
 
     temp1 = randFace1;
     temp2 = randFace2;
