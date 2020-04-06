@@ -7,41 +7,23 @@ body {
   padding-bottom: 2rem;
 }
 
-.btn-toolbar {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 #debrief {
   padding-top: 5rem;
 }
-
-.rating-btn {
-  width: 100%;
-}
-
-/* #ratings-row {
-  margin-right: 5rem;
-} */
 
 #similar2 {
   display: none;
 }
 
-
+.rating-btn {
+  border-radius: 4px;
+}
 
 @media all and (max-width: 575px) {
-  .rating-btn {
-    width: 100%;
-  }
 
   #similar {
     display: none;
   }
-
-  /* #ratings-row {
-    margin-right: 0rem;
-  } */
 
   #similar2 {
     display: block;
