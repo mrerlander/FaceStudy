@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
       randFace2 = Math.floor(Math.random() * 36);
     } while (randFace1 === randFace2 || randFace2 === temp || randFace2 === temp2);
 
-    temp1 = randFace1;
+    temp = randFace1;
     temp2 = randFace2;
 
     if (!faceOneDiv.firstElementChild || !faceTwoDiv.firstElementChild) {
