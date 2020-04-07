@@ -216,11 +216,12 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       ratingsArr.push(rating);
 
-      if (count < 119) {
+      if (count < 5) {
         count++;
         loadFaces();
       } else {
         disableButtons();
+        document.getElementById("study-div").style.display = "none";
         document.getElementById("info-form").style.display = "block";
       }
     };

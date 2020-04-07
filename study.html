@@ -19,115 +19,151 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1 class="text-center">Face Similarity Survey</h1>
-      <p class="text-center">
-        Please do not press the "Back" button at any time while participating in
-        this study or your progress may be lost.
-      </p>
-      <div id="pic-div" class="row justify-content-center">
-        <div id="face-one" class="col-12 col-sm-6">
-        </div>
-        <div id="face-two" class="col-12 col-sm-6">
-        </div>
-      </div>
-      <div id="rating-div">
+      <div id="study-div">
+        <h1 class="text-center">Face Similarity Survey</h1>
         <p class="text-center">
-          Please rate the faces in terms of how dissimilar-similar they are.
+          Please do not press the "Back" button at any time while participating
+          in this study or your progress may be lost.
         </p>
-        <div class="row justify-content-between">
-          <p id="dissimilar" class="col-12 col-sm-4 text-center">Highly Dissimilar</p>
-          <p id="similar" class="col-sm-4 text-center">Highly Similar</p>
+        <div id="pic-div" class="row justify-content-center">
+          <div id="face-one" class="col-12 col-sm-6"></div>
+          <div id="face-two" class="col-12 col-sm-6"></div>
         </div>
-        <div id="ratings-row" class="row justify-content-center">          
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            1
-            </button>
+        <div id="rating-div">
+          <p class="text-center">
+            Please rate the faces in terms of how dissimilar-similar they are.
+          </p>
+          <div class="row justify-content-between">
+            <p id="dissimilar" class="col-12 col-sm-4 text-center">
+              Highly Dissimilar
+            </p>
+            <p id="similar" class="col-sm-4 text-center">Highly Similar</p>
           </div>
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            2
-            </button>
+          <div id="ratings-row" class="row justify-content-center">
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                1
+              </button>
+            </div>
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                2
+              </button>
+            </div>
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                3
+              </button>
+            </div>
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                4
+              </button>
+            </div>
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                5
+              </button>
+            </div>
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                6
+              </button>
+            </div>
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                7
+              </button>
+            </div>
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                8
+              </button>
+            </div>
+            <div class="col-12 col-sm-1">
+              <button
+                type="button"
+                class="rating-btn btn-block btn-outline-dark"
+              >
+                9
+              </button>
+            </div>
           </div>
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            3
-            </button>
-          </div>
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            4
-            </button>
-          </div>
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            5
-            </button>
-          </div>
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            6
-            </button>  
-          </div>
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            7
-            </button>
-          </div>
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            8
-            </button>
-          </div>
-          <div class="col-12 col-sm-1">
-            <button type="button" class="rating-btn btn-block btn-outline-dark">
-            9
-            </button>
-          </div>      
         </div>
         <div class="row justify-content-between">
           <p id="similar2" class="col-12 text-center">Highly Similar</p>
         </div>
-      <div class="row" id="info-form" style="display: none;">
+      </div>
+      <div id="info-form" style="display: none;">
         <h3 class="font-weight-bold text-center">
           Thank you for your participation! Please fill out the form below:
         </h3>
-        <form id="form">
-          <div class="form-group">
-            <label for="age">What is your age in years?</label>
-            <input
-              type="number"
-              class="form-control"
-              id="age"
-              min="18"
-              max="99"
-              placeholder="Valid ages are 18-99"
-              required
-            />
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-6">
+            <form id="form">
+              <div class="form-group">
+                <label for="age">What is your age in years?</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="age"
+                  min="18"
+                  max="99"
+                  placeholder="Valid ages are 18-99"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="race">What is your race/ethnic identity?</label>
+                <select class="form-control" id="race" required>
+                  <option selected disabled>Select One</option>
+                  <option>Asian</option>
+                  <option>Black</option>
+                  <option>Latino</option>
+                  <option>White</option>
+                  <option>Multiracial/Biracial</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="gender">What is your gender?</label>
+                <select class="form-control" id="gender" required>
+                  <option selected disabled>Select One</option>
+                  <option>Female</option>
+                  <option>Male</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-lg btn-outline-dark">
+                Submit
+              </button>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="race">What is your race/ethnic identity?</label>
-            <select class="form-control" id="race" required>
-              <option selected disabled>Select One</option>
-              <option>Asian</option>
-              <option>Black</option>
-              <option>Latino</option>
-              <option>White</option>
-              <option>Multiracial/Biracial</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="gender">What is your gender?</label>
-            <select class="form-control" id="gender" required>
-              <option selected disabled>Select One</option>
-              <option>Female</option>
-              <option>Male</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <button type="submit" class="btn-lg btn-outline-dark">Submit</button>
-        </form>
+        </div>
       </div>
     </div>
   </body>
