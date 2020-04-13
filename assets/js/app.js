@@ -105,6 +105,17 @@ document.addEventListener("DOMContentLoaded", function () {
     test = "not edited";
   }
 
+  // let firebaseConfig = {
+  //   apiKey: "AIzaSyCAiQq7AGfVPamHHSN_ObkAIsn8LFALkP8",
+  //   authDomain: "mds-base-script.firebaseapp.com",
+  //   databaseURL: "https://mds-base-script.firebaseio.com",
+  //   projectId: "mds-base-script",
+  //   storageBucket: "mds-base-script.appspot.com",
+  //   messagingSenderId: "377022607691",
+  //   appId: "1:377022607691:web:5f28b6a13b60a6168f38ce",
+  //   measurementId: "G-NMTK4X8L1S"
+  // };  
+
   let firebaseConfig = {
     apiKey: "AIzaSyARjmqlMf7UhFA8buKB5OIQ2VreaqMz4l0",
     authDomain: "facestudy-7aa90.firebaseapp.com",
@@ -113,8 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
     storageBucket: "facestudy-7aa90.appspot.com",
     messagingSenderId: "517061399659",
     appId: "1:517061399659:web:021d269da8ffd264b58d2e",
-    measurementId: "G-TTFMER2NY5",
+    measurementId: "G-TTFMER2NY5"
   };
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
@@ -235,9 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let age = form.firstElementChild.lastElementChild.value;
     let race = form.children[1].lastElementChild.value;
     let gender = form.children[2].lastElementChild.value;
-    console.log(age);
-    console.log(race);
-    console.log(gender);
+    
     if (race === "Select One" || gender === "Select One") {
       if (race != "Select One") {
         document.getElementById("race").style.borderColor = "#ced4da";
@@ -251,15 +261,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       return;
     } else {
-      let personInfo = new Person(age, race, gender, id, test);
-      let totalInfo = new AllInfo(ratingsArr, personInfo, test);
+
+      ratingsArr.forEach(function (element){
+        element.age = age;
+        element.race = race;
+        element.gender = gender;
+        element.test = test;
+      })
+      let today = new Date();
+      todayString = today.toDateString();
 
       firebase
         .database()
-        .ref("participants/" + personInfo.id)
-        .set({
-          totalInfo,
-        });
+        .ref(todayString + "/" + id)
+        .set(ratingsArr);
       form.reset();
       window.location.href = "debrief.html";
     }
