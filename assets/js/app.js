@@ -40,70 +40,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  let faces = [
-    "./assets/images/CFD-BF-001-025-N.jpg",
-    "./assets/images/CFD-BF-037-022-N.jpg",
-    "./assets/images/CFD-BF-039-031-N.jpg",
-    "./assets/images/CFD-BF-040-003-N.jpg",
-    "./assets/images/CFD-BF-201-080-N.jpg",
-    "./assets/images/CFD-BF-204-189-N.jpg",
-    "./assets/images/CFD-BF-218-207-N.jpg",
-    "./assets/images/CFD-BF-221-223-N.jpg",
-    "./assets/images/CFD-BF-244-231-N.jpg",
-    "./assets/images/CFD-LF-204-133-N.jpg",
-    "./assets/images/CFD-LF-209-072-N.jpg",
-    "./assets/images/CFD-LF-212-066-N.jpg",
-    "./assets/images/CFD-LF-214-090-N.jpg",
-    "./assets/images/CFD-LF-215-157-N.jpg",
-    "./assets/images/CFD-LF-220-120-N.jpg",
-    "./assets/images/CFD-LF-221-002-N.jpg",
-    "./assets/images/CFD-LF-252-172-N.jpg",
-    "./assets/images/CFD-LF-255-088-N.jpg",
-    "./assets/images/CFD-WF-008-002-N.jpg",
-    "./assets/images/CFD-WF-011-002-N.jpg",
-    "./assets/images/CFD-WF-036-023-N.jpg",
-    "./assets/images/CFD-WF-038-021-N.jpg",
-    "./assets/images/CFD-WF-205-006-N.jpg",
-    "./assets/images/CFD-WF-207-014-N.jpg",
-    "./assets/images/CFD-WF-208-068-N.jpg",
-    "./assets/images/CFD-WF-212-050-N.jpg",
-    "./assets/images/CFD-WF-218-087-N.jpg",
+  let fFaces = [
+    "./assets/images/female/AF-206-079-N.jpg",
+    "./assets/images/female/AF-214-139-N.jpg",
+    "./assets/images/female/AF-215-070-N.jpg",
+    "./assets/images/female/AF-246-242-N.jpg",
+    "./assets/images/female/AF-253-130-N.jpg",
+    "./assets/images/female/MF-308-001.jpg",
+    "./assets/images/female/MF-326-016.jpg",
+    "./assets/images/female/MF-359-019.jpg",
+    "./assets/images/female/MF-360-106.jpg",
+    "./assets/images/female/MF-361-006.jpg",
+    "./assets/images/female/WF-022-017-N.jpg",
+    "./assets/images/female/WF-027-003-N.jpg",
+    "./assets/images/female/WF-037-029-N.jpg",
+    "./assets/images/female/WF-220-101-N.jpg",
+    "./assets/images/female/WF-242-001-N.jpg",
   ];
 
-  nonEditedFaces = [
-    "./assets/images/MF-306-003.jpg",
-    "./assets/images/MF-310-027.jpg",
-    "./assets/images/MF-318-022.jpg",
-    "./assets/images/MF-328-020.jpg",
-    "./assets/images/MF-332-014.jpg",
-    "./assets/images/MF-337-026.jpg",
-    "./assets/images/MF-340-026.jpg",
-    "./assets/images/MF-347-001.jpg",
-    "./assets/images/MF-348-018.jpg",
-  ];
+  // mFaces = [
+  //   "./assets/images/male/AM-203-086-N.jpg",
+  //   "./assets/images/male/AM-209-048-N.jpg",
+  //   "./assets/images/male/AM-210-035-N.jpg",
+  //   "./assets/images/male/AM-213-056-N.jpg",
+  //   "./assets/images/male/AM-238-269-N.jpg",
+  //   "./assets/images/male/MM-306-010.jpg",
+  //   "./assets/images/male/MM-310-001.jpg",
+  //   "./assets/images/male/MM-312-002.jpg",
+  //   "./assets/images/male/MM-317-061.jpg",
+  //   "./assets/images/male/MM-323-053.jpg",
+  //   "./assets/images/male/WM-009-002-N.jpg",
+  //   "./assets/images/male/WM-014-002-N.jpg",
+  //   "./assets/images/male/WM-016-001-N.jpg",
+  //   "./assets/images/male/WM-029-023-N.jpg",
+  //   "./assets/images/male/WM-257-161-N.jpg",
+  // ];
 
-  EditedFaces = [
-    "./assets/images/MF-306-003-bz.jpg",
-    "./assets/images/MF-310-027-bz.jpg",
-    "./assets/images/MF-318-022-bz.jpg",
-    "./assets/images/MF-328-020-bz.jpg",
-    "./assets/images/MF-332-014-bz.jpg",
-    "./assets/images/MF-337-026-bz.jpg",
-    "./assets/images/MF-340-026-bz.jpg",
-    "./assets/images/MF-347-001-bz.jpg",
-    "./assets/images/MF-348-018-bz.jpg",
-  ];
+  // let randomBool = Math.random() >= 0.5;
+  let test = "female";
 
-  let randomBool = Math.random() >= 0.5;
-  let test;
-
-  if (randomBool === true) {
-    faces = faces.concat(EditedFaces);
-    test = "edited";
-  } else {
-    faces = faces.concat(nonEditedFaces);
-    test = "not edited";
-  }
+  // if (randomBool === true) {
+  //   faces = faces.concat(EditedFaces);
+  //   test = "edited";
+  // } else {
+  //   faces = faces.concat(nonEditedFaces);
+  //   test = "not edited";
+  // }
 
   // let firebaseConfig = {
   //   apiKey: "AIzaSyCAiQq7AGfVPamHHSN_ObkAIsn8LFALkP8",
@@ -175,11 +157,11 @@ document.addEventListener("DOMContentLoaded", function () {
     faceTwoDiv = document.getElementById("face-two");
 
     do {
-      randFace1 = Math.floor(Math.random() * 36);
+      randFace1 = Math.floor(Math.random() * 15);
     } while (randFace1 === temp || randFace1 === temp2);
 
     do {
-      randFace2 = Math.floor(Math.random() * 36);
+      randFace2 = Math.floor(Math.random() * 15);
     } while (randFace1 === randFace2 || randFace2 === temp || randFace2 === temp2);
 
     temp = randFace1;
@@ -191,8 +173,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       faceOneEl.setAttribute("id", "face-1");
       faceTwoEl.setAttribute("id", "face-2");
-      faceOneEl.setAttribute("src", faces[randFace1]);
-      faceTwoEl.setAttribute("src", faces[randFace2]);
+      faceOneEl.setAttribute("src", fFaces[randFace1]);
+      faceTwoEl.setAttribute("src", fFaces[randFace2]);
       faceOneEl.setAttribute("class", "img-fluid mx-auto d-block");
       faceTwoEl.setAttribute("class", "img-fluid mx-auto d-block");
 
@@ -202,8 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
       faceOne = document.getElementById("face-1");
       faceTwo = document.getElementById("face-2");
 
-      faceOneEl.setAttribute("src", faces[randFace1]);
-      faceTwoEl.setAttribute("src", faces[randFace2]);
+      faceOneEl.setAttribute("src", fFaces[randFace1]);
+      faceTwoEl.setAttribute("src", fFaces[randFace2]);
     }
   }
 
@@ -220,15 +202,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let button = buttons[i];
     button.onclick = function () {
       let rating = new FaceRating(
-        faces[randFace1].substring(16),
-        faces[randFace2].substring(16),
+        fFaces[randFace1].substring(16),
+        fFaces[randFace2].substring(16),
         parseInt(button.innerHTML),
         id,
         test
       );
       ratingsArr.push(rating);
 
-      if (count < 119) {
+      if (count < 104) {
         count++;
         loadFaces();
       } else {
