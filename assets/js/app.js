@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let temp;
   let temp2;
   let ratingsArr = [];
+  let buttons = document.getElementsByClassName("rating-btn");
 
   function loadFaces() {
     faceOneDiv = document.getElementById("face-one");
@@ -189,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  let buttons = document.getElementsByClassName("rating-btn");
+  
 
   function disableButtons() {
     for (let i = 0; i < buttons.length; i++) {
@@ -209,9 +210,10 @@ document.addEventListener("DOMContentLoaded", function () {
         test
       );
       ratingsArr.push(rating);
-
+      
       if (count < 104) {
         count++;
+        
         loadFaces();
       } else {
         disableButtons();

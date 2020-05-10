@@ -19,6 +19,15 @@ body {
   border-radius: 4px;
 }
 
+.btn-outline-dark.focus, .btn-outline-dark:focus {
+  box-shadow: none;
+}
+
+.btn-outline-dark:hover {
+  color: #343a40;
+  background-color: transparent;
+}
+
 @media all and (max-width: 575px) {
 
   #similar {
