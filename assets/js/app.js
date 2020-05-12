@@ -1,12 +1,7 @@
-window.onload = checkConsent();
-
-function checkConsent() {
+document.addEventListener("DOMContentLoaded", function () {
   if(!localStorage.getItem("consent")){
     window.location.href = "/";
   }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
   let inst1 = document.getElementById("instructions-one");
