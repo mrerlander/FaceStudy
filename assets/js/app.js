@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault;
       debriefText.style.display = "none";
       code.style.display = "block";
+      localStorage.removeItem("consent");
     });
   }
 
