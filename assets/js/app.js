@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  
+  let sPath = window.location.pathname;
+  let sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
   let inst1 = document.getElementById("instructions-one");
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let debriefText = document.getElementById("debrief-text");
   let code = document.getElementById("code");
 
-  if(window.location.href == "study.html"){
+  if(sPage == "/study.html"){
     if(!localStorage.getItem("consent")){
       window.location.href = "index.html";
     }
