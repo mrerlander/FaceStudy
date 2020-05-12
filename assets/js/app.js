@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  checkConsent();
+  
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
   let inst1 = document.getElementById("instructions-one");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let debriefText = document.getElementById("debrief-text");
   let code = document.getElementById("code");
 
-  function checkConsent() {
+  if(window.location.href == "study.html"){
     if(!localStorage.getItem("consent")){
       window.location.href = "index.html";
     }
