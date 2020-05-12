@@ -1,3 +1,11 @@
+window.onload = checkConsent();
+
+function checkConsent() {
+  if(!localStorage.getItem("consent")){
+    window.location.href = "index.html";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
@@ -16,6 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
         nextBtn.disabled = true;
       }
     };
+  }
+
+  if (nextBtn){
+    nextBtn.addEventListener("click", function(e) {
+      e.preventDefault;
+      localStorage.setItem("consent", "true");
+      window.location.href = "instructions.html";
+    });
   }
 
   if (instructionsBtn) {
