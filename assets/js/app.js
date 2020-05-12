@@ -2,7 +2,7 @@ window.onload = checkConsent();
 
 function checkConsent() {
   if(!localStorage.getItem("consent")){
-    window.location.href = "index.html";
+    window.location.href = "/";
   }
 }
 
