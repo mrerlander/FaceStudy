@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let debriefText = document.getElementById("debrief-text");
   let code = document.getElementById("code");
 
-  if(sPage == "/study.html"){
+  if(document.URL.includes("study.html")){
     if(!localStorage.getItem("consent")){
       window.location.href = "index.html";
     }
