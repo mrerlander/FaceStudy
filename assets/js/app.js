@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function checkConsent() {
     if(!localStorage.getItem("consent")){
-      window.location.href = "/";
+      window.location.href = "index.html";
     }
   }
 
