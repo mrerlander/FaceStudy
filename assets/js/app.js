@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  if(!localStorage.getItem("consent")){
-    window.location.href = "/";
-  }
+  checkConsent();
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
   let inst1 = document.getElementById("instructions-one");
@@ -10,6 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let debriefBtn = document.getElementById("debrief-button");
   let debriefText = document.getElementById("debrief-text");
   let code = document.getElementById("code");
+
+  function checkConsent() {
+    if(!localStorage.getItem("consent")){
+      window.location.href = "/";
+    }
+  }
 
   if (checkBox) {
     checkBox.onchange = function () {
