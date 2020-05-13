@@ -104,27 +104,27 @@ document.addEventListener("DOMContentLoaded", function () {
   //   test = "not edited";
   // }
 
-  // let firebaseConfig = {
-  //   apiKey: "AIzaSyCAiQq7AGfVPamHHSN_ObkAIsn8LFALkP8",
-  //   authDomain: "mds-base-script.firebaseapp.com",
-  //   databaseURL: "https://mds-base-script.firebaseio.com",
-  //   projectId: "mds-base-script",
-  //   storageBucket: "mds-base-script.appspot.com",
-  //   messagingSenderId: "377022607691",
-  //   appId: "1:377022607691:web:5f28b6a13b60a6168f38ce",
-  //   measurementId: "G-NMTK4X8L1S"
-  // };  
-
   let firebaseConfig = {
-    apiKey: "AIzaSyARjmqlMf7UhFA8buKB5OIQ2VreaqMz4l0",
-    authDomain: "facestudy-7aa90.firebaseapp.com",
-    databaseURL: "https://facestudy-7aa90.firebaseio.com",
-    projectId: "facestudy-7aa90",
-    storageBucket: "facestudy-7aa90.appspot.com",
-    messagingSenderId: "517061399659",
-    appId: "1:517061399659:web:021d269da8ffd264b58d2e",
-    measurementId: "G-TTFMER2NY5"
-  };
+    apiKey: "AIzaSyCAiQq7AGfVPamHHSN_ObkAIsn8LFALkP8",
+    authDomain: "mds-base-script.firebaseapp.com",
+    databaseURL: "https://mds-base-script.firebaseio.com",
+    projectId: "mds-base-script",
+    storageBucket: "mds-base-script.appspot.com",
+    messagingSenderId: "377022607691",
+    appId: "1:377022607691:web:5f28b6a13b60a6168f38ce",
+    measurementId: "G-NMTK4X8L1S"
+  };  
+
+  // let firebaseConfig = {
+  //   apiKey: "AIzaSyARjmqlMf7UhFA8buKB5OIQ2VreaqMz4l0",
+  //   authDomain: "facestudy-7aa90.firebaseapp.com",
+  //   databaseURL: "https://facestudy-7aa90.firebaseio.com",
+  //   projectId: "facestudy-7aa90",
+  //   storageBucket: "facestudy-7aa90.appspot.com",
+  //   messagingSenderId: "517061399659",
+  //   appId: "1:517061399659:web:021d269da8ffd264b58d2e",
+  //   measurementId: "G-TTFMER2NY5"
+  // };
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
