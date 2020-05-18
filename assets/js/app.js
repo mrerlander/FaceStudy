@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let sPath = window.location.pathname;
-  let sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
   let checkBox = document.getElementById("consent");
   let nextBtn = document.getElementById("submit-button");
   let inst1 = document.getElementById("instructions-one");
@@ -57,44 +55,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  let fFaces = [
-    "./assets/images/female/AF-206-079-N.jpg",
-    "./assets/images/female/AF-214-139-N.jpg",
-    "./assets/images/female/AF-215-070-N.jpg",
-    "./assets/images/female/AF-246-242-N.jpg",
-    "./assets/images/female/AF-253-130-N.jpg",
-    "./assets/images/female/MF-308-001.jpg",
-    "./assets/images/female/MF-326-016.jpg",
-    "./assets/images/female/MF-359-019.jpg",
-    "./assets/images/female/MF-360-106.jpg",
-    "./assets/images/female/MF-361-006.jpg",
-    "./assets/images/female/WF-022-017-N.jpg",
-    "./assets/images/female/WF-027-003-N.jpg",
-    "./assets/images/female/WF-037-029-N.jpg",
-    "./assets/images/female/WF-220-101-N.jpg",
-    "./assets/images/female/WF-242-001-N.jpg",
-  ];
-
-  // mFaces = [
-  //   "./assets/images/male/AM-203-086-N.jpg",
-  //   "./assets/images/male/AM-209-048-N.jpg",
-  //   "./assets/images/male/AM-210-035-N.jpg",
-  //   "./assets/images/male/AM-213-056-N.jpg",
-  //   "./assets/images/male/AM-238-269-N.jpg",
-  //   "./assets/images/male/MM-306-010.jpg",
-  //   "./assets/images/male/MM-310-001.jpg",
-  //   "./assets/images/male/MM-312-002.jpg",
-  //   "./assets/images/male/MM-317-061.jpg",
-  //   "./assets/images/male/MM-323-053.jpg",
-  //   "./assets/images/male/WM-009-002-N.jpg",
-  //   "./assets/images/male/WM-014-002-N.jpg",
-  //   "./assets/images/male/WM-016-001-N.jpg",
-  //   "./assets/images/male/WM-029-023-N.jpg",
-  //   "./assets/images/male/WM-257-161-N.jpg",
+  // let fFaces = [
+  //   "./assets/images/female/AF-206-079-N.jpg",
+  //   "./assets/images/female/AF-214-139-N.jpg",
+  //   "./assets/images/female/AF-215-070-N.jpg",
+  //   "./assets/images/female/AF-246-242-N.jpg",
+  //   "./assets/images/female/AF-253-130-N.jpg",
+  //   "./assets/images/female/MF-308-001.jpg",
+  //   "./assets/images/female/MF-326-016.jpg",
+  //   "./assets/images/female/MF-359-019.jpg",
+  //   "./assets/images/female/MF-360-106.jpg",
+  //   "./assets/images/female/MF-361-006.jpg",
+  //   "./assets/images/female/WF-022-017-N.jpg",
+  //   "./assets/images/female/WF-027-003-N.jpg",
+  //   "./assets/images/female/WF-037-029-N.jpg",
+  //   "./assets/images/female/WF-220-101-N.jpg",
+  //   "./assets/images/female/WF-242-001-N.jpg",
   // ];
 
+  mFaces = [
+    "./assets/images/male/AM-203-086-N.jpg",
+    "./assets/images/male/AM-209-048-N.jpg",
+    "./assets/images/male/AM-210-035-N.jpg",
+    "./assets/images/male/AM-213-056-N.jpg",
+    "./assets/images/male/AM-238-269-N.jpg",
+    "./assets/images/male/MM-306-010.jpg",
+    "./assets/images/male/MM-310-001.jpg",
+    "./assets/images/male/MM-312-002.jpg",
+    "./assets/images/male/MM-317-061.jpg",
+    "./assets/images/male/MM-323-053.jpg",
+    "./assets/images/male/WM-009-002-N.jpg",
+    "./assets/images/male/WM-014-002-N.jpg",
+    "./assets/images/male/WM-016-001-N.jpg",
+    "./assets/images/male/WM-029-023-N.jpg",
+    "./assets/images/male/WM-257-161-N.jpg",
+  ];
+
   // let randomBool = Math.random() >= 0.5;
-  let test = "female";
+  let test = "male";
 
   // if (randomBool === true) {
   //   faces = faces.concat(EditedFaces);
@@ -191,8 +189,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       faceOneEl.setAttribute("id", "face-1");
       faceTwoEl.setAttribute("id", "face-2");
-      faceOneEl.setAttribute("src", fFaces[randFace1]);
-      faceTwoEl.setAttribute("src", fFaces[randFace2]);
+      faceOneEl.setAttribute("src", mFaces[randFace1]);
+      faceTwoEl.setAttribute("src", mFaces[randFace2]);
       faceOneEl.setAttribute("class", "img-fluid mx-auto d-block");
       faceTwoEl.setAttribute("class", "img-fluid mx-auto d-block");
 
@@ -202,8 +200,8 @@ document.addEventListener("DOMContentLoaded", function () {
       faceOne = document.getElementById("face-1");
       faceTwo = document.getElementById("face-2");
 
-      faceOneEl.setAttribute("src", fFaces[randFace1]);
-      faceTwoEl.setAttribute("src", fFaces[randFace2]);
+      faceOneEl.setAttribute("src", mFaces[randFace1]);
+      faceTwoEl.setAttribute("src", mFaces[randFace2]);
     }
   }
 
@@ -220,8 +218,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let button = buttons[i];
     button.onclick = function () {
       let rating = new FaceRating(
-        fFaces[randFace1].substring(16),
-        fFaces[randFace2].substring(16),
+        mFaces[randFace1].substring(16),
+        mFaces[randFace2].substring(16),
         parseInt(button.innerHTML),
         id,
         test
