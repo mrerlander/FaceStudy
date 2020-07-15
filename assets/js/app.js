@@ -73,26 +73,79 @@ document.addEventListener("DOMContentLoaded", function () {
   //   "./assets/images/female/WF-242-001-N.jpg",
   // ];
 
-  mFaces = [
-    "./assets/images/male/AM-203-086-N.jpg",
-    "./assets/images/male/AM-209-048-N.jpg",
-    "./assets/images/male/AM-210-035-N.jpg",
-    "./assets/images/male/AM-213-056-N.jpg",
-    "./assets/images/male/AM-238-269-N.jpg",
-    "./assets/images/male/MM-306-010.jpg",
-    "./assets/images/male/MM-310-001.jpg",
-    "./assets/images/male/MM-312-002.jpg",
-    "./assets/images/male/MM-317-061.jpg",
-    "./assets/images/male/MM-323-053.jpg",
-    "./assets/images/male/WM-009-002-N.jpg",
-    "./assets/images/male/WM-014-002-N.jpg",
-    "./assets/images/male/WM-016-001-N.jpg",
-    "./assets/images/male/WM-029-023-N.jpg",
-    "./assets/images/male/WM-257-161-N.jpg",
+  // mFaces = [
+  //   "./assets/images/male/AM-203-086-N.jpg",
+  //   "./assets/images/male/AM-209-048-N.jpg",
+  //   "./assets/images/male/AM-210-035-N.jpg",
+  //   "./assets/images/male/AM-213-056-N.jpg",
+  //   "./assets/images/male/AM-238-269-N.jpg",
+  //   "./assets/images/male/MM-306-010.jpg",
+  //   "./assets/images/male/MM-310-001.jpg",
+  //   "./assets/images/male/MM-312-002.jpg",
+  //   "./assets/images/male/MM-317-061.jpg",
+  //   "./assets/images/male/MM-323-053.jpg",
+  //   "./assets/images/male/WM-009-002-N.jpg",
+  //   "./assets/images/male/WM-014-002-N.jpg",
+  //   "./assets/images/male/WM-016-001-N.jpg",
+  //   "./assets/images/male/WM-029-023-N.jpg",
+  //   "./assets/images/male/WM-257-161-N.jpg",
+  // ];
+
+  let faces = [
+    "./assets/images/CFD-BF-001-025-N.jpg",
+    "./assets/images/CFD-BF-037-022-N.jpg",
+    "./assets/images/CFD-BF-039-031-N.jpg",
+    "./assets/images/CFD-BF-040-003-N.jpg",
+    "./assets/images/CFD-BF-201-080-N.jpg",
+    "./assets/images/CFD-BF-204-189-N.jpg",
+    "./assets/images/CFD-BF-218-207-N.jpg",
+    "./assets/images/CFD-BF-221-223-N.jpg",
+    "./assets/images/CFD-BF-244-231-N.jpg",
+    "./assets/images/CFD-LF-204-133-N.jpg",
+    "./assets/images/CFD-LF-209-072-N.jpg",
+    "./assets/images/CFD-LF-212-066-N.jpg",
+    "./assets/images/CFD-LF-214-090-N.jpg",
+    "./assets/images/CFD-LF-215-157-N.jpg",
+    "./assets/images/CFD-LF-220-120-N.jpg",
+    "./assets/images/CFD-LF-221-002-N.jpg",
+    "./assets/images/CFD-LF-252-172-N.jpg",
+    "./assets/images/CFD-LF-255-088-N.jpg",
+    "./assets/images/CFD-WF-008-002-N.jpg",
+    "./assets/images/CFD-WF-011-002-N.jpg",
+    "./assets/images/CFD-WF-036-023-N.jpg",
+    "./assets/images/CFD-WF-038-021-N.jpg",
+    "./assets/images/CFD-WF-205-006-N.jpg",
+    "./assets/images/CFD-WF-207-014-N.jpg",
+    "./assets/images/CFD-WF-208-068-N.jpg",
+    "./assets/images/CFD-WF-212-050-N.jpg",
+    "./assets/images/CFD-WF-218-087-N.jpg",
+    "./assets/images/MF-306-003.jpg",
+    "./assets/images/MF-310-027.jpg",
+    "./assets/images/MF-318-022.jpg",
+    "./assets/images/MF-328-020.jpg",
+    "./assets/images/MF-332-014.jpg",
+    "./assets/images/MF-337-026.jpg",
+    "./assets/images/MF-340-026.jpg",
+    "./assets/images/MF-347-001.jpg",
+    "./assets/images/MF-348-018.jpg",
   ];
 
+  // facePairs = [];
+
+  // function pairs(arr){
+  //   let l = arr.length;
+
+  //   for(let i = 0; i < l; i++){
+  //     for(let j = i + 1; j < l; j++){
+  //       facePairs.push([arr[i], arr[j]]);
+  //     }
+  //   }
+  // }
+
+  // pairs(mFaces);
+
   // let randomBool = Math.random() >= 0.5;
-  let test = "male";
+  let test = "original female";
 
   // if (randomBool === true) {
   //   faces = faces.concat(EditedFaces);
@@ -143,12 +196,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   class Person {
-    constructor(age, race, gender, id, test) {
+    constructor(age, race, gender, id, test) { //, oldZip, newZip
       this.age = age;
       this.race = race;
       this.gender = gender;
       this.id = id;
-      this.test = test;
+      this.test = test //;
+      // this.oldZip = oldZip;
+      // this.newZip = newZip;
     }
   }
 
@@ -163,25 +218,47 @@ document.addEventListener("DOMContentLoaded", function () {
   let count = 0;
   let randFace1;
   let randFace2;
-  let temp;
+  let temp; //= [0,0];
   let temp2;
+  let temp3;
+  let temp4;
   let ratingsArr = [];
   let buttons = document.getElementsByClassName("rating-btn");
+  let pair = [0,0];
+  let counter = 0;
+  let pairIndex;
 
   function loadFaces() {
     faceOneDiv = document.getElementById("face-one");
     faceTwoDiv = document.getElementById("face-two");
 
     do {
-      randFace1 = Math.floor(Math.random() * 15);
-    } while (randFace1 === temp || randFace1 === temp2);
+      randFace1 = Math.floor(Math.random() * 36);
+    } while (randFace1 === temp || randFace1 === temp2 || randFace1 === temp3 || randFace1 === temp4);
 
     do {
-      randFace2 = Math.floor(Math.random() * 15);
-    } while (randFace1 === randFace2 || randFace2 === temp || randFace2 === temp2);
+      randFace2 = Math.floor(Math.random() * 36);
+    } while (randFace1 === randFace2 || randFace2 === temp || randFace2 === temp2 || randFace2 === temp3 || randFace2 === temp4);
 
+    temp3 = temp;
+    temp4 = temp2;
     temp = randFace1;
     temp2 = randFace2;
+    
+
+    // do{
+    //   pairIndex = Math.floor(Math.random() * facePairs.length);
+    //   console.log(pairIndex);
+    //   pair = facePairs[pairIndex];
+    //   console.log(pair[0] + " " + temp[0] + "-----" + pair[1] + " " + temp[1]);
+    //   counter++;
+    //   if(count == facePairs.length){
+    //     break;
+    //   }
+    // } while (pair[0] === temp[0] || pair[0] === temp[1] || pair[1] === temp[0] || pair[1] === temp[1]);
+    
+    // temp = pair;
+    // counter = 0;
 
     if (!faceOneDiv.firstElementChild || !faceTwoDiv.firstElementChild) {
       faceOneEl = document.createElement("img");
@@ -189,8 +266,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       faceOneEl.setAttribute("id", "face-1");
       faceTwoEl.setAttribute("id", "face-2");
-      faceOneEl.setAttribute("src", mFaces[randFace1]);
-      faceTwoEl.setAttribute("src", mFaces[randFace2]);
+      faceOneEl.setAttribute("src", faces[randFace1]); //pair[0]
+      faceTwoEl.setAttribute("src", faces[randFace2]); //pair[1]
       faceOneEl.setAttribute("class", "img-fluid mx-auto d-block");
       faceTwoEl.setAttribute("class", "img-fluid mx-auto d-block");
 
@@ -200,12 +277,14 @@ document.addEventListener("DOMContentLoaded", function () {
       faceOne = document.getElementById("face-1");
       faceTwo = document.getElementById("face-2");
 
-      faceOneEl.setAttribute("src", mFaces[randFace1]);
-      faceTwoEl.setAttribute("src", mFaces[randFace2]);
+      // faceOneEl.setAttribute("src", pair[0]);
+      // faceTwoEl.setAttribute("src", pair[1]);
+      faceOneEl.setAttribute("src", faces[randFace1]);
+      faceTwoEl.setAttribute("src", faces[randFace2]);
     }
+    
+    // facePairs.splice(pairIndex, 1);
   }
-
-  
 
   function disableButtons() {
     for (let i = 0; i < buttons.length; i++) {
@@ -218,15 +297,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let button = buttons[i];
     button.onclick = function () {
       let rating = new FaceRating(
-        mFaces[randFace1].substring(16),
-        mFaces[randFace2].substring(16),
+        // pair[0].substring(16),
+        // pair[1].substring(16),
+        faces[randFace1].substring(16),
+        faces[randFace2].substring(16),
         parseInt(button.innerHTML),
         id,
         test
       );
       ratingsArr.push(rating);
       
-      if (count < 104) {
+      if (count < 119) {
         count++;
         
         loadFaces();
@@ -246,6 +327,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let age = form.firstElementChild.lastElementChild.value;
     let race = form.children[1].lastElementChild.value;
     let gender = form.children[2].lastElementChild.value;
+    // let oldZip = form.children[3].lastElementChild.value;
+    // let newZip = form.children[4].lastElementChild.value;
     
     if (race === "Select One" || gender === "Select One") {
       if (race != "Select One") {
@@ -265,10 +348,13 @@ document.addEventListener("DOMContentLoaded", function () {
         element.age = age;
         element.race = race;
         element.gender = gender;
+        //element.oldZip = oldZip;
+        //element.newZip = newZip;
         element.test = test;
       })
       let today = new Date();
       todayString = today.toDateString();
+      
 
       firebase
         .database()
