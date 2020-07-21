@@ -166,7 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "./assets/images/CFD-LF-238-154-N.jpg",
     "./assets/images/CFD-LF-231-260-N.jpg",
     "./assets/images/CFD-LF-226-174-N.jpg",
-    "./assets/images/CFD-LF-221-002-N.jpg",
     "./assets/images/CFD-LF-220-120-N.jpg",
     "./assets/images/CFD-LF-217-082-N.jpg",
     "./assets/images/CFD-LF-215-157-N.jpg",
@@ -293,11 +292,11 @@ document.addEventListener("DOMContentLoaded", function () {
     faceTwoDiv = document.getElementById("face-two");
 
     do {
-      randFace1 = Math.floor(Math.random() * 57);
+      randFace1 = Math.floor(Math.random() * 56);
     } while (randFace1 === temp || randFace1 === temp2 || randFace1 === temp3 || randFace1 === temp4);
 
     do {
-      randFace2 = Math.floor(Math.random() * 57);
+      randFace2 = Math.floor(Math.random() * 56);
     } while (randFace1 === randFace2 || randFace2 === temp || randFace2 === temp2 || randFace2 === temp3 || randFace2 === temp4);
 
     temp3 = temp;
