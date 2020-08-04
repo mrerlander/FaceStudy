@@ -225,24 +225,34 @@ document.addEventListener("DOMContentLoaded", function () {
     measurementId: "G-NMTK4X8L1S"
   };  
 
-  // let firebaseConfig = {
-  //   apiKey: "AIzaSyARjmqlMf7UhFA8buKB5OIQ2VreaqMz4l0",
-  //   authDomain: "facestudy-7aa90.firebaseapp.com",
-  //   databaseURL: "https://facestudy-7aa90.firebaseio.com",
-  //   projectId: "facestudy-7aa90",
-  //   storageBucket: "facestudy-7aa90.appspot.com",
-  //   messagingSenderId: "517061399659",
-  //   appId: "1:517061399659:web:021d269da8ffd264b58d2e",
-  //   measurementId: "G-TTFMER2NY5"
-  // };
+  let firebaseConfig2 = {
+    apiKey: "AIzaSyARjmqlMf7UhFA8buKB5OIQ2VreaqMz4l0",
+    authDomain: "facestudy-7aa90.firebaseapp.com",
+    databaseURL: "https://facestudy-7aa90.firebaseio.com",
+    projectId: "facestudy-7aa90",
+    storageBucket: "facestudy-7aa90.appspot.com",
+    messagingSenderId: "517061399659",
+    appId: "1:517061399659:web:021d269da8ffd264b58d2e",
+    measurementId: "G-TTFMER2NY5"
+  };
 
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  let primaryDB = firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
-  let database = firebase.database();
+  
 
-  let id = Date.now();
+  let secondaryDB = firebase.initializeApp(firebaseConfig2, "secondary");
+  secondaryDB.analytics();
+
+  let today = new Date();
+  let todayString = today.toDateString();
+
+  let refPrimary = primaryDB.database().ref(todayString);
+  // let refSecondary = secondaryDB.database().ref(todayString);
+  let newUserRef = refPrimary.push();
+
+  let id = newUserRef.key;
 
   class FaceRating {
     constructor(face1, face2, rating, id, test) {
@@ -283,9 +293,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let temp4;
   let ratingsArr = [];
   let buttons = document.getElementsByClassName("rating-btn");
-  let pair = [0,0];
-  let counter = 0;
-  let pairIndex;
+  // let pair = [0,0];
+  // let counter = 0;
+  // let pairIndex;
 
   function loadFaces() {
     faceOneDiv = document.getElementById("face-one");
@@ -366,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       ratingsArr.push(rating);
       
-      if (count < 119) {
+      if (count < 3) {
         count++;
         
         loadFaces();
@@ -410,17 +420,20 @@ document.addEventListener("DOMContentLoaded", function () {
         //element.oldZip = oldZip;
         //element.newZip = newZip;
         element.test = test;
-      })
-      let today = new Date();
-      todayString = today.toDateString();
-      
+      });
 
-      firebase
+      secondaryDB
         .database()
         .ref(todayString + "/" + id)
-        .set(ratingsArr);
-      form.reset();
-      window.location.href = "debrief.html";
+        .set(ratingsArr)
+        .then(function(){
+          newUserRef
+          .set(ratingsArr)
+          .then(function (){
+            form.reset();
+            window.location.href = "debrief.html";
+          });
+        });    
     }
   }
 
