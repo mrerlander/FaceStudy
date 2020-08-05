@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       ratingsArr.push(rating);
       
-      if (count < 3) {
+      if (count < 119) {
         count++;
         
         loadFaces();
