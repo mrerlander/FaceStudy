@@ -87,6 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
     childCountry.onchange = function () {
       if (this.value === "Yes") {
         childZipQ.style.display = "block";
+        countryDiv.style.display = "none";
+        cityDiv.style.display = "none";
         oldZip.required = true;
         city.value = "";
         country.value = "";
