@@ -1,16 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
   let checkBox = document.getElementById("consent");
+  let checkBoxAlt = document.getElementById("consent-alt");
   let nextBtn = document.getElementById("submit-button");
+  let nextBtnAlt = document.getElementById("submit-button-alt");
   let inst1 = document.getElementById("instructions-one");
   let inst2 = document.getElementById("instructions-two");
   let instructionsBtn = document.getElementById("instructions-button");
+  let childCountry = document.getElementById("child-country");
   let debriefBtn = document.getElementById("debrief-button");
+  let debriefBtnAlt = document.getElementById("debrief-button-alt");
   let debriefText = document.getElementById("debrief-text");
+  let debriefTextAlt = document.getElementById("debrief-text-alt");
   let code = document.getElementById("code");
+  let codeAlt = document.getElementById("code-alt");
+  let usChild = document.getElementById("child-country");
+  let childZipQ = document.getElementById("child-zip");
+  let oldZip = document.getElementById("old-zip");
+  let city = document.getElementById("city");
+  let country = document.getElementById("country");
+  let cityDiv = document.getElementById("city-div");
+  let countryDiv = document.getElementById("country-div");
+  let subjectPool;
 
-  if(document.URL.includes("study.html")){
-    if(!localStorage.getItem("consent")){
-      window.location.href = "index.html";
+  if (document.URL.includes("study.html")) {
+    if (!localStorage.getItem("consent")) {
+      if (!localStorage.getItem("subjectPool")) {
+        window.location.href = "index.html";
+      } else {
+        window.location.href = "consent.html";
+      }
     }
   }
 
@@ -24,9 +42,28 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  if (nextBtn){
-    nextBtn.addEventListener("click", function(e) {
+  if (checkBoxAlt) {
+    checkBoxAlt.onchange = function () {
+      if (this.checked) {
+        nextBtnAlt.disabled = false;
+      } else {
+        nextBtnAlt.disabled = true;
+      }
+    };
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function (e) {
       e.preventDefault;
+      localStorage.setItem("consent", "true");
+      window.location.href = "instructions.html";
+    });
+  }
+
+  if (nextBtnAlt) {
+    nextBtnAlt.addEventListener("click", function (e) {
+      e.preventDefault;
+      localStorage.setItem("subjectPool", "true");
       localStorage.setItem("consent", "true");
       window.location.href = "instructions.html";
     });
@@ -46,12 +83,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  if (childCountry) {
+    childCountry.onchange = function () {
+      if (this.value === "Yes") {
+        childZipQ.style.display = "block";
+        oldZip.required = true;
+        city.value = "";
+        country.value = "";
+        country.required = false;
+        city.required = false;
+      } else {
+        childZipQ.style.display = "none";
+        countryDiv.style.display = "block";
+        cityDiv.style.display = "block";
+        country.required = true;
+        city.required = true;
+        oldZip.required = false;
+        oldZip.value = "";
+      }
+    };
+  }
+
   if (debriefBtn) {
     debriefBtn.addEventListener("click", function (e) {
       e.preventDefault;
       debriefText.style.display = "none";
       code.style.display = "block";
       localStorage.removeItem("consent");
+    });
+  }
+
+  if (debriefBtnAlt) {
+    debriefBtnAlt.addEventListener("click", function (e) {
+      e.preventDefault;
+      debriefTextAlt.style.display = "none";
+      codeAlt.style.display = "block";
+      localStorage.removeItem("consent");
+      localStorage.removeItem("subjectPool");
     });
   }
 
@@ -186,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "./assets/images/CFD-AF-224-026-N.jpg",
     "./assets/images/CFD-AF-216-106-N.jpg",
     "./assets/images/CFD-AF-214-139-N.jpg",
-    "./assets/images/CFD-AF-206-079-N.jpg"
+    "./assets/images/CFD-AF-206-079-N.jpg",
   ];
 
   // facePairs = [];
@@ -222,8 +290,8 @@ document.addEventListener("DOMContentLoaded", function () {
     storageBucket: "mds-base-script.appspot.com",
     messagingSenderId: "377022607691",
     appId: "1:377022607691:web:5f28b6a13b60a6168f38ce",
-    measurementId: "G-NMTK4X8L1S"
-  };  
+    measurementId: "G-NMTK4X8L1S",
+  };
 
   let firebaseConfig2 = {
     apiKey: "AIzaSyARjmqlMf7UhFA8buKB5OIQ2VreaqMz4l0",
@@ -233,14 +301,12 @@ document.addEventListener("DOMContentLoaded", function () {
     storageBucket: "facestudy-7aa90.appspot.com",
     messagingSenderId: "517061399659",
     appId: "1:517061399659:web:021d269da8ffd264b58d2e",
-    measurementId: "G-TTFMER2NY5"
+    measurementId: "G-TTFMER2NY5",
   };
 
   // Initialize Firebase
   let primaryDB = firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-
-  
 
   let secondaryDB = firebase.initializeApp(firebaseConfig2, "secondary");
   secondaryDB.analytics();
@@ -265,22 +331,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   class Person {
-    constructor(age, race, gender, id, test) { //, oldZip, newZip
+    constructor(age, race, gender, id, test) {
+      //, oldZip, newZip
       this.age = age;
       this.race = race;
       this.gender = gender;
       this.id = id;
-      this.test = test //;
-      // this.oldZip = oldZip;
-      // this.newZip = newZip;
+      this.test = test;
+      this.oldZip = oldZip;
+      this.newZip = newZip;
     }
   }
 
   class AllInfo {
-    constructor(ratings, person, test) {
+    constructor(ratings, person, test, subjectPool) {
       this.ratings = ratings;
       this.person = person;
       this.test = test;
+      this.subjectPool = subjectPool;
     }
   }
 
@@ -313,7 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
     temp4 = temp2;
     temp = randFace1;
     temp2 = randFace2;
-    
 
     // do{
     //   pairIndex = Math.floor(Math.random() * facePairs.length);
@@ -325,7 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //     break;
     //   }
     // } while (pair[0] === temp[0] || pair[0] === temp[1] || pair[1] === temp[0] || pair[1] === temp[1]);
-    
+
     // temp = pair;
     // counter = 0;
 
@@ -351,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
       faceOneEl.setAttribute("src", faces[randFace1]);
       faceTwoEl.setAttribute("src", faces[randFace2]);
     }
-    
+
     // facePairs.splice(pairIndex, 1);
   }
 
@@ -375,20 +442,25 @@ document.addEventListener("DOMContentLoaded", function () {
         test
       );
       ratingsArr.push(rating);
-      
+
       if (count < 119) {
+        //119
         count++;
-        
+
         loadFaces();
       } else {
         disableButtons();
         document.getElementById("study-div").style.display = "none";
         document.getElementById("info-form").style.display = "block";
+        buttonSubmit.disabled = false;
       }
     };
   }
 
   let form = document.getElementById("form");
+  let buttonSubmit = document.getElementById("submit-form-button");
+  let buttonResubmit = document.getElementById("resubmit-button");
+  let debrief = "debrief.html";
 
   form.onsubmit = submit;
   function submit(e) {
@@ -396,44 +468,103 @@ document.addEventListener("DOMContentLoaded", function () {
     let age = form.firstElementChild.lastElementChild.value;
     let race = form.children[1].lastElementChild.value;
     let gender = form.children[2].lastElementChild.value;
-    // let oldZip = form.children[3].lastElementChild.value;
-    // let newZip = form.children[4].lastElementChild.value;
-    
-    if (race === "Select One" || gender === "Select One") {
-      if (race != "Select One") {
-        document.getElementById("race").style.borderColor = "#ced4da";
-      } else {
-        document.getElementById("race").style.borderColor = "red";
-      }
-      if (gender != "Select One") {
-        document.getElementById("gender").style.borderColor = "#ced4da";
-      } else {
-        document.getElementById("gender").style.borderColor = "red";
-      }
-      return;
+    let oldZip = form.children[6].lastElementChild.value;
+    let childCountry = form.children[4].lastElementChild.value;
+    let childCity = form.children[5].lastElementChild.value;
+    let newZip = form.children[7].lastElementChild.value;
+
+    if (!localStorage.getItem("subjectPool")) {
+      subjectPool = false;
     } else {
+      subjectPool = true;
+      debrief = "debriefsp.html";
+    }
 
-      ratingsArr.forEach(function (element){
-        element.age = age;
-        element.race = race;
-        element.gender = gender;
-        //element.oldZip = oldZip;
-        //element.newZip = newZip;
-        element.test = test;
-      });
+    buttonSubmit.disabled = true;
+    buttonSubmit.style.display = "none";
+    buttonResubmit.style.display = "block";
+    buttonResubmit.innerText = "Loading...";
 
+    if(oldZip === ""){
+      oldZip = "none";
+    }
+
+    if(childCountry === ""){
+      childCountry = "United States";
+    }
+
+    if(childCity === ""){
+      childCity = "none";
+    }
+
+    ratingsArr.forEach(function (element) {
+      element.age = age;
+      element.race = race;
+      element.gender = gender;
+      element.oldZip = oldZip;
+      element.country = childCountry;
+      element.city = childCity;
+      element.newZip = newZip;
+      element.test = test;
+      element.subjectPool = subjectPool;
+    });
+
+    buttonSubmit.addEventListener("click", writeToDBs);
+    writeToDBs();
+  }
+
+  let errorCode = 2;
+
+  function writeToDBs() {
+    if (errorCode == 2) {
       secondaryDB
         .database()
         .ref(todayString + "/" + id)
         .set(ratingsArr)
-        .then(function(){
+        .then(function () {
           newUserRef
-          .set(ratingsArr)
-          .then(function (){
-            form.reset();
-            window.location.href = "debrief.html";
-          });
-        });    
+            .set(ratingsArr)
+            .then(function () {
+              form.reset();
+              console.log("boop");
+              console.log(debrief);
+              window.location.href = debrief;
+            })
+            .catch(function (error) {
+              console.log(error);
+              alert(
+                "There was an error with your submission. Please try again. (error code 1) first catch"
+              );
+              errorCode = 1;
+              buttonResubmit.disabled = false;
+              buttonResubmit.innerText = "Submit";
+            });
+        })
+        .catch(function (error) {
+          alert(
+            "There was an error with your submission. Please try again. (error code 2)"
+          );
+          errorCode = 2;
+          buttonResubmit.disabled = false;
+          buttonResubmit.innerText = "Submit";
+        });
+    }
+
+    if (errorCode == 1) {
+      newUserRef
+        .set(ratingsArr)
+        .then(function () {
+          form.reset();
+            window.location.href = debrief;
+        })
+        .catch(function (error) {
+          alert(
+            "There was an error with your submission. Please try again. (error code 1)"
+          );
+          errorCode = 1;
+          buttonSubmit.style.display = "block";
+          buttonResubmit.style.display = "none";
+        });
     }
   }
 
