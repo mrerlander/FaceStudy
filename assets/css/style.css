@@ -28,6 +28,10 @@ body {
   background-color: transparent;
 }
 
+.form-padding {
+  padding-bottom: 40px;
+}
+
 @media all and (max-width: 575px) {
 
   #similar {
