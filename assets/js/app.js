@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let country = document.getElementById("country");
   let cityDiv = document.getElementById("city-div");
   let countryDiv = document.getElementById("country-div");
-  let subjectPool;
+  let subjectPool = false;
 
   if (document.URL.includes("study.html")) {
     if (!localStorage.getItem("consent")) {
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // pairs(mFaces);
 
   // let randomBool = Math.random() >= 0.5;
-  let test = "original female";
+  let test = "BWLB-Wprot";
 
   // if (randomBool === true) {
   //   faces = faces.concat(EditedFaces);
@@ -332,27 +332,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  class Person {
-    constructor(age, race, gender, id, test) {
-      //, oldZip, newZip
-      this.age = age;
-      this.race = race;
-      this.gender = gender;
-      this.id = id;
-      this.test = test;
-      this.oldZip = oldZip;
-      this.newZip = newZip;
-    }
-  }
+  // class Person {
+  //   constructor(age, race, gender, id, test) {
+  //     //, oldZip, newZip
+  //     this.age = age;
+  //     this.race = race;
+  //     this.gender = gender;
+  //     this.id = id;
+  //     this.test = test;
+  //     this.oldZip = oldZip;
+  //     this.newZip = newZip;
+  //   }
+  // }
 
-  class AllInfo {
-    constructor(ratings, person, test, subjectPool) {
-      this.ratings = ratings;
-      this.person = person;
-      this.test = test;
-      this.subjectPool = subjectPool;
-    }
-  }
+  // class AllInfo {
+  //   constructor(ratings, person, test, subjectPool) {
+  //     this.ratings = ratings;
+  //     this.person = person;
+  //     this.test = test;
+  //     this.subjectPool = subjectPool;
+  //   }
+  // }
 
   let count = 0;
   let randFace1;
@@ -445,16 +445,21 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       ratingsArr.push(rating);
 
-      if (count < 119) {
+      if (count < 119) { 
         //119
         count++;
 
         loadFaces();
       } else {
         disableButtons();
-        document.getElementById("study-div").style.display = "none";
-        document.getElementById("info-form").style.display = "block";
-        buttonSubmit.disabled = false;
+        // document.getElementById("study-div").style.display = "none";
+        // document.getElementById("info-form").style.display = "block";
+        // buttonSubmit.disabled = false;
+        ratingsArr.forEach(function (element) {
+          element.test = test;
+          element.subjectPool = subjectPool;
+        });
+        writeToDBs()
       }
     };
   }
@@ -462,58 +467,58 @@ document.addEventListener("DOMContentLoaded", function () {
   let form = document.getElementById("form");
   let buttonSubmit = document.getElementById("submit-form-button");
   let buttonResubmit = document.getElementById("resubmit-button");
-  let debrief = "debrief.html";
+  let debrief = "https://csunsbs.qualtrics.com/jfe/form/SV_eRQyAj9JNhnPS74?ID=" + id + "&study=" + test;
 
-  form.onsubmit = submit;
-  function submit(e) {
-    e.preventDefault();
-    let age = form.firstElementChild.lastElementChild.value;
-    let race = form.children[1].lastElementChild.value;
-    let gender = form.children[2].lastElementChild.value;
-    let oldZip = form.children[6].lastElementChild.value;
-    let childCountry = form.children[4].lastElementChild.value;
-    let childCity = form.children[5].lastElementChild.value;
-    let newZip = form.children[7].lastElementChild.value;
+  // form.onsubmit = submit;
+  // function submit(e) {
+  //   e.preventDefault();
+  //   let age = form.firstElementChild.lastElementChild.value;
+  //   let race = form.children[1].lastElementChild.value;
+  //   let gender = form.children[2].lastElementChild.value;
+    // let oldZip = form.children[6].lastElementChild.value;
+    // let childCountry = form.children[4].lastElementChild.value;
+    // let childCity = form.children[5].lastElementChild.value;
+    // let newZip = form.children[7].lastElementChild.value;
 
-    if (!localStorage.getItem("subjectPool")) {
-      subjectPool = false;
-    } else {
-      subjectPool = true;
-      debrief = "debriefsp.html";
-    }
+    // if (!localStorage.getItem("subjectPool")) {
+    //   subjectPool = false;
+    // } else {
+    //   subjectPool = true;
+    //   debrief = "debriefsp.html";
+    // }
 
-    buttonSubmit.disabled = true;
-    buttonSubmit.style.display = "none";
-    buttonResubmit.style.display = "block";
-    buttonResubmit.innerText = "Loading...";
+    // buttonSubmit.disabled = true;
+    // buttonSubmit.style.display = "none";
+    // buttonResubmit.style.display = "block";
+    // buttonResubmit.innerText = "Loading...";
 
-    if(oldZip === ""){
-      oldZip = "none";
-    }
+    // if(oldZip === ""){
+    //   oldZip = "none";
+    // }
 
-    if(childCountry === ""){
-      childCountry = "United States";
-    }
+    // if(childCountry === ""){
+    //   childCountry = "United States";
+    // }
 
-    if(childCity === ""){
-      childCity = "none";
-    }
+    // if(childCity === ""){
+    //   childCity = "none";
+    // }
 
-    ratingsArr.forEach(function (element) {
-      element.age = age;
-      element.race = race;
-      element.gender = gender;
-      element.oldZip = oldZip;
-      element.country = childCountry;
-      element.city = childCity;
-      element.newZip = newZip;
-      element.test = test;
-      element.subjectPool = subjectPool;
-    });
+    // ratingsArr.forEach(function (element) {
+      // element.age = age;
+      // element.race = race;
+      // element.gender = gender;
+      // element.oldZip = oldZip;
+      // element.country = childCountry;
+      // element.city = childCity;
+      // element.newZip = newZip;
+    //   element.test = test;
+    //   element.subjectPool = subjectPool;
+    // });
 
-    buttonSubmit.addEventListener("click", writeToDBs);
-    writeToDBs();
-  }
+  //   buttonSubmit.addEventListener("click", writeToDBs);
+  //   writeToDBs();
+  // }
 
   let errorCode = 2;
 
@@ -527,7 +532,7 @@ document.addEventListener("DOMContentLoaded", function () {
           newUserRef
             .set(ratingsArr)
             .then(function () {
-              form.reset();
+              // form.reset();
               console.log("boop");
               console.log(debrief);
               window.location.href = debrief;
@@ -535,20 +540,22 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(function (error) {
               console.log(error);
               alert(
-                "There was an error with your submission. Please try again. (error code 1) first catch"
+                "There was an error with your submission. Trying again. (error code 1)"
               );
               errorCode = 1;
-              buttonResubmit.disabled = false;
-              buttonResubmit.innerText = "Submit";
+              // buttonResubmit.disabled = false;
+              // buttonResubmit.innerText = "Submit";
+              writeToDBs();
             });
         })
         .catch(function (error) {
           alert(
-            "There was an error with your submission. Please try again. (error code 2)"
+            "There was an error with your submission. Trying again. (error code 2)"
           );
           errorCode = 2;
-          buttonResubmit.disabled = false;
-          buttonResubmit.innerText = "Submit";
+          // buttonResubmit.disabled = false;
+          // buttonResubmit.innerText = "Submit";
+          writeToDBs();
         });
     }
 
@@ -561,11 +568,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(function (error) {
           alert(
-            "There was an error with your submission. Please try again. (error code 1)"
+            "There was an error with your submission. Trying again. (error code 1)"
           );
           errorCode = 1;
-          buttonSubmit.style.display = "block";
-          buttonResubmit.style.display = "none";
+          // buttonSubmit.style.display = "block";
+          // buttonResubmit.style.display = "none";
+          writeToDBs();
         });
     }
   }
