@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // pairs(mFaces);
 
   // let randomBool = Math.random() >= 0.5;
-  let test = "Hawaii";
+  let test = "MR_contact";
 
   // if (randomBool === true) {
   //   faces = faces.concat(EditedFaces);
@@ -467,7 +467,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let form = document.getElementById("form");
   let buttonSubmit = document.getElementById("submit-form-button");
   let buttonResubmit = document.getElementById("resubmit-button");
-  let debrief = "https://csunsbs.qualtrics.com/jfe/form/SV_eRQyAj9JNhnPS74?ID=" + id;
+  let debrief = "https://csunsbs.qualtrics.com/jfe/form/SV_eRQyAj9JNhnPS74?ID=" + id + "&study=" + test;
 
   // form.onsubmit = submit;
   // function submit(e) {
