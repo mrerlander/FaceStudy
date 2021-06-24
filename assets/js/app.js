@@ -33,6 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (checkBox) {
+    if(window.location.href.indexOf("face-study-hi") != -1){
+      document.getElementById("hawaii").style.display = "block";
+    } else {
+      document.getElementById("not-hawaii").style.display = "block";
+    }
     checkBox.onchange = function () {
       if (this.checked) {
         nextBtn.disabled = false;
