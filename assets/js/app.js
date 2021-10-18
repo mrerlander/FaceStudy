@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let form = document.getElementById("form");
   let buttonSubmit = document.getElementById("submit-form-button");
   let buttonResubmit = document.getElementById("resubmit-button");
-  let debrief = "https://csunsbs.qualtrics.com/jfe/form/SV_eRQyAj9JNhnPS74?ID=" + id + "&study=" + test;
+  let debrief = "https://csunsbs.qualtrics.com/jfe/form/SV_5u2groSvvXtHbzo?ID=" + id + "&study=" + test;
 
   // form.onsubmit = submit;
   // function submit(e) {
