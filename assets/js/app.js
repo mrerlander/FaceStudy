@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // pairs(mFaces);
 
   // let randomBool = Math.random() >= 0.5;
-  let test = "MR_contact";
+  let test = "MR_contact_";
 
   // if (randomBool === true) {
   //   faces = faces.concat(EditedFaces);
