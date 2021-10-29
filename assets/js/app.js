@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let cityDiv = document.getElementById("city-div");
   let countryDiv = document.getElementById("country-div");
   let subjectPool = false;
+  let surveyURL;
+  let test;
 
   if (document.URL.includes("study.html")) {
     if (!localStorage.getItem("consent")) {
@@ -35,8 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (checkBox) {
     if(window.location.href.indexOf("face-study-hi") != -1){
       document.getElementById("hawaii").style.display = "block";
+      localStorage.setItem('surveyURL', 'https://csunsbs.qualtrics.com/jfe/form/SV_eRQyAj9JNhnPS74?ID=');
+      localStorage.setItem('test', 'MR_Contact";');
     } else {
       document.getElementById("not-hawaii").style.display = "block";
+      localStorage.setItem('surveyURL', 'https://csunsbs.qualtrics.com/jfe/form/SV_5u2groSvvXtHbzo?ID=');
+      localStorage.setItem('test', 'MR_Non-HI";');
     }
     checkBox.onchange = function () {
       if (this.checked) {
@@ -279,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // pairs(mFaces);
 
   // let randomBool = Math.random() >= 0.5;
-  let test = "MR_Non_HI";
+  
 
   // if (randomBool === true) {
   //   faces = faces.concat(EditedFaces);
@@ -472,7 +478,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let form = document.getElementById("form");
   let buttonSubmit = document.getElementById("submit-form-button");
   let buttonResubmit = document.getElementById("resubmit-button");
-  let debrief = "https://csunsbs.qualtrics.com/jfe/form/SV_5u2groSvvXtHbzo?ID=" + id + "&study=" + test;
+  surveyURL = localStorage.getItem('surveyURL');
+  test = localStorage.getItem('test');
+  let debrief = surveyURL + id + "&study=" + test;
 
   // form.onsubmit = submit;
   // function submit(e) {
@@ -540,6 +548,7 @@ document.addEventListener("DOMContentLoaded", function () {
               // form.reset();
               console.log("boop");
               console.log(debrief);
+              localStorage.clear()
               window.location.href = debrief;
             })
             .catch(function (error) {
@@ -569,7 +578,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .set(ratingsArr)
         .then(function () {
           form.reset();
-            window.location.href = debrief;
+          localStorage.clear();
+          window.location.href = debrief;
         })
         .catch(function (error) {
           alert(
