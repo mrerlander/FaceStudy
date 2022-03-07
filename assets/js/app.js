@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let code = document.getElementById("code");
   let codeAlt = document.getElementById("code-alt");
   // let usChild = document.getElementById("child-country");
-  // let childZipQ = document.getElementById("child-zip");
+  // wqlet childZipQ = document.getElementById("child-zip");
   // let oldZip = document.getElementById("old-zip");
   // let city = document.getElementById("city");
   // let country = document.getElementById("country");
