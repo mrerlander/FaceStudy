@@ -6,20 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
   let inst1 = document.getElementById("instructions-one");
   let inst2 = document.getElementById("instructions-two");
   let instructionsBtn = document.getElementById("instructions-button");
-  let childCountry = document.getElementById("child-country");
+  // let childCountry = document.getElementById("child-country");
   let debriefBtn = document.getElementById("debrief-button");
   let debriefBtnAlt = document.getElementById("debrief-button-alt");
   let debriefText = document.getElementById("debrief-text");
   let debriefTextAlt = document.getElementById("debrief-text-alt");
   let code = document.getElementById("code");
   let codeAlt = document.getElementById("code-alt");
-  let usChild = document.getElementById("child-country");
-  let childZipQ = document.getElementById("child-zip");
-  let oldZip = document.getElementById("old-zip");
-  let city = document.getElementById("city");
-  let country = document.getElementById("country");
-  let cityDiv = document.getElementById("city-div");
-  let countryDiv = document.getElementById("country-div");
+  // let usChild = document.getElementById("child-country");
+  // let childZipQ = document.getElementById("child-zip");
+  // let oldZip = document.getElementById("old-zip");
+  // let city = document.getElementById("city");
+  // let country = document.getElementById("country");
+  // let cityDiv = document.getElementById("city-div");
+  // let countryDiv = document.getElementById("country-div");
   let subjectPool = false;
   let surveyURL;
   let test;
@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if(window.location.href.indexOf("face-study-hi") != -1){
       document.getElementById("hawaii").style.display = "block";
       localStorage.setItem('surveyURL', 'https://csunsbs.qualtrics.com/jfe/form/SV_eRQyAj9JNhnPS74?ID=');
-      localStorage.setItem('test', 'MR_Contact";');
+      localStorage.setItem('test', 'MR_Contact');
     } else {
       document.getElementById("not-hawaii").style.display = "block";
       localStorage.setItem('surveyURL', 'https://csunsbs.qualtrics.com/jfe/form/SV_5u2groSvvXtHbzo?ID=');
-      localStorage.setItem('test', 'MR_Non-HI";');
+      localStorage.setItem('test', 'MR_Non-HI');
     }
     checkBox.onchange = function () {
       if (this.checked) {
@@ -94,28 +94,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (childCountry) {
-    childCountry.onchange = function () {
-      if (this.value === "Yes") {
-        childZipQ.style.display = "block";
-        countryDiv.style.display = "none";
-        cityDiv.style.display = "none";
-        oldZip.required = true;
-        city.value = "";
-        country.value = "";
-        country.required = false;
-        city.required = false;
-      } else {
-        childZipQ.style.display = "none";
-        countryDiv.style.display = "block";
-        cityDiv.style.display = "block";
-        country.required = true;
-        city.required = true;
-        oldZip.required = false;
-        oldZip.value = "";
-      }
-    };
-  }
+  // if (childCountry) {
+  //   childCountry.onchange = function () {
+  //     if (this.value === "Yes") {
+  //       childZipQ.style.display = "block";
+  //       countryDiv.style.display = "none";
+  //       cityDiv.style.display = "none";
+  //       oldZip.required = true;
+  //       city.value = "";
+  //       country.value = "";
+  //       country.required = false;
+  //       city.required = false;
+  //     } else {
+  //       childZipQ.style.display = "none";
+  //       countryDiv.style.display = "block";
+  //       cityDiv.style.display = "block";
+  //       country.required = true;
+  //       city.required = true;
+  //       oldZip.required = false;
+  //       oldZip.value = "";
+  //     }
+  //   };
+  // }
 
   if (debriefBtn) {
     debriefBtn.addEventListener("click", function (e) {
@@ -476,8 +476,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   let form = document.getElementById("form");
-  let buttonSubmit = document.getElementById("submit-form-button");
-  let buttonResubmit = document.getElementById("resubmit-button");
+  //let buttonSubmit = document.getElementById("submit-form-button");
+  //let buttonResubmit = document.getElementById("resubmit-button");
   surveyURL = localStorage.getItem('surveyURL');
   test = localStorage.getItem('test');
   let debrief = surveyURL + id + "&study=" + test;
